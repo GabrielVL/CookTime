@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,5 +15,21 @@ namespace CookTime.Views
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            Device.BeginInvokeOnMainThread( async () =>
+            {
+                RestClient client = new RestClient();
+                var root = await client.Get<Profile>("https://my-json-server.typicode.com/typicode/demo/profile");
+                if (root != null)
+                {
+                    ChangedLabel.Text = root.name;
+                }
+            });
+        }
+
     }
 }
