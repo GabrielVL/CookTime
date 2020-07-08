@@ -23,13 +23,22 @@ namespace CookTime.Views
             Device.BeginInvokeOnMainThread( async () =>
             {
                 RestClient client = new RestClient();
-                var root = await client.Get<Profile>("https://my-json-server.typicode.com/typicode/demo/profile");
-                if (root != null)
-                {
-                    ChangedLabel.Text = root.name;
-                }
+                client.Peticion(ChangedLabel); 
+                
+                    
+                
             });
         }
+        public void Hola()
+        {
 
+                
+
+        }
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            RestClient client = new RestClient();
+            client.Peticion(ChangedLabel);
+        }
     }
 }
