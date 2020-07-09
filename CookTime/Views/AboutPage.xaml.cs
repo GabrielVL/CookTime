@@ -31,7 +31,7 @@ namespace CookTime.Views
         }
         public void Hola()
         {
-
+            
                 
 
         }
