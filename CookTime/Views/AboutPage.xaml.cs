@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CookTime.Views
 {
@@ -29,12 +27,7 @@ namespace CookTime.Views
                 
             });
         }
-        public void Hola()
-        {
 
-                
-
-        }
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             RestClient client = new RestClient();
