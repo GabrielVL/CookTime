@@ -39,6 +39,11 @@ namespace CookTime.Views
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
+        async void AddUser_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

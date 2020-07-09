@@ -45,7 +45,7 @@ namespace CookTime
                 webClient.QueryString.Add("ID", "1");
                 webClient.QueryString.Add("DATA", "correo");
 
-                string result = webClient.DownloadString("http://192.168.100.2:8080/CookTime_Web_exploded/users");
+                string result = webClient.DownloadString("http://192.168.1.5:8081/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
             catch (Exception e)
