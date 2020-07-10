@@ -38,7 +38,7 @@ namespace CookTime.Services
 
             for (int i = 0; i < 3; i++)
             {
-                items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"].ToString(), Description = "Descripcion"});
+                items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"].ToString(), Description = pubCont [i]["edad"], foto = "http://www.comunidadism.es/wp-content/uploads/2019/07/mapache-600x330.jpg" });
                 JsonObject actPub = new JsonObject();
                 //String titulo = actPub["nombre"].ToString();
 
