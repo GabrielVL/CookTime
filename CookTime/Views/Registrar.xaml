@@ -1,27 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
-             x:Class="CookTime.Views.Registrar">
-
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.Registrar"
+             xmlns:vm="clr-namespace:CookTime.Views"
+             Title="{Binding Title}">
 
     <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Button Text="Registrarse" Clicked="enviarFormulario" />
 
+
+
         <Label Text="Nombre" FontSize="Medium" />
-        <Entry x:Name="Nombre" Text="{Binding Item.Text}" FontSize="Small" ></Entry>
+        <Entry x:Name="Nombre"  FontSize="Small" ></Entry>
         <Label Text="Primer Apellido" FontSize="Medium" />
-        <Entry x:Name="PrimerApellido"Text="{Binding Item.Text}"   FontSize="Small" />
+        <Entry x:Name="PrimerApellido"    FontSize="Small" />
         <Label Text="Segundo Apellido" FontSize="Medium" />
-        <Entry x:Name="SegundoApellido"Text="{Binding Item.Text}"   FontSize="Small" />
+        <Entry x:Name="SegundoApellido" FontSize="Small" />
         <Label Text="Correo Electrónico" FontSize="Medium" />
-        <Entry x:Name="Correo"Text="{Binding Item.Text}"   FontSize="Small" />
+        <Entry x:Name="Correo"  FontSize="Small" />
         <Label Text="Edad" FontSize="Medium" />
-        <Entry x:Name="Edad"Text="{Binding Item.Text}"   FontSize="Small" />
+        <Entry x:Name="Edad"  FontSize="Small" />
         <Label Text="Contraseña" FontSize="Medium" />
-        <Entry x:Name="Contrasena"Text="{Binding Item.Text}"   FontSize="Small" />
-        <Label Text="Perfil" FontSize="Medium" />
-        <Entry x:Name="Perfil"Text="{Binding Item.Text}"   FontSize="Small" />
+        <Entry x:Name="Contrasena"   FontSize="Small" />
+
 
     </StackLayout>
     

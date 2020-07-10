@@ -37,14 +37,14 @@ namespace CookTime.Views
         
         async void enviarFormulario(object e, EventArgs a)
         {
-           
+            ;
             JsonObject Usuario = new JsonObject ();
             Usuario.Add("nombre", Nombre.Text);
-            //Usuario.Add("apellido1",PrimerApellido.Text);
-            //Usuario.Add("apellido2", SegundoApellido.Text);
-            //Usuario.Add("edad", Edad.Text);
-            //Usuario.Add("contrasena",Contrasena.Text);
-            //Usuario.Add("correo",Correo.Text);
+            Usuario.Add("apellido1",PrimerApellido.Text);
+            Usuario.Add("apellido2", SegundoApellido.Text);
+            Usuario.Add("edad", Edad.Text);
+            Usuario.Add("contrasena",Contrasena.Text);
+            Usuario.Add("correo",Correo.Text);
         }
 
 
