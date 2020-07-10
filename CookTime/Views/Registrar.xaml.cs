@@ -4,8 +4,10 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Json;
-
+using System.Net;
+using System.Text;
 using CookTime.Models;
+using System.Net.Http;
 
 namespace CookTime.Views
 {
@@ -18,6 +20,7 @@ namespace CookTime.Views
 
         public Registrar()
         {
+            
             InitializeComponent();
             User = new User
             {
@@ -37,7 +40,7 @@ namespace CookTime.Views
         
         async void enviarFormulario(object e, EventArgs a)
         {
-            ;
+            
             JsonObject Usuario = new JsonObject ();
             Usuario.Add("nombre", Nombre.Text);
             Usuario.Add("apellido1",PrimerApellido.Text);
@@ -45,6 +48,7 @@ namespace CookTime.Views
             Usuario.Add("edad", Edad.Text);
             Usuario.Add("contrasena",Contrasena.Text);
             Usuario.Add("correo",Correo.Text);
+            registration(Usuario);
         }
 
 
@@ -53,6 +57,15 @@ namespace CookTime.Views
             await Navigation.PopModalAsync();
         }
 
+        public async void registration(JsonObject myJson)
+        {
+            HttpClient client = new HttpClient();
+
+            MyIp myIps = new MyIp();
+
+            var response = await client.PostAsync("http://"+myIps.returnIP()+":8080/CookTime_Web_exploded/users", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            
+        } 
 
 
     }

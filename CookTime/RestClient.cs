@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
 using System.Json;
+using CookTime.Views;
+
 namespace CookTime
 {
     class RestClient
@@ -45,7 +47,8 @@ namespace CookTime
                 webClient.QueryString.Add("ID", "1");
                 webClient.QueryString.Add("DATA", "correo");
 
-                string result = webClient.DownloadString("http://192.168.1.5:8081/CookTime_Web_exploded/users");
+                MyIp myIps = new MyIp();
+                string result = webClient.DownloadString("http://" + myIps.returnIP() + ":8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
             catch (Exception e)
