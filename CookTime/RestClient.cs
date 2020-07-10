@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
-using Newtonsoft.Json.Converters;
+using System.Json;
+using CookTime.Views;
 
 namespace CookTime
 {
@@ -43,9 +44,8 @@ namespace CookTime
                 ChangedLabel.Text = reader.ReadToEnd();
                 */
 
-
-                WebClient webClient = new WebClient();
-                string result = webClient.DownloadString("http://192.168.100.2:8080/CookTime_Web_exploded/users");
+                MyIp myIps = new MyIp();
+                string result = webClient.DownloadString("http://" + myIps.returnIP() + ":8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
             catch (Exception e)
