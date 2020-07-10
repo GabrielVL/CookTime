@@ -25,7 +25,7 @@ namespace CookTime.Services
 
         public async void Peticion()
         {
-            String url = "http://192.168.100.2:8080/CookTime_Web_exploded/users";
+            String url = "http://192.168.100.2:8080/CookTime_Web_exploded/recipes";
 
 
             WebClient nombre = new WebClient();
@@ -36,11 +36,11 @@ namespace CookTime.Services
 
         public void Publicar() {
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < pubCont.Count; i++)
             {
                 try
                 {
-                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"].ToString(), Description = pubCont[i]["edad"], foto = "http://www.comunidadism.es/wp-content/uploads/2019/07/mapache-600x330.jpg" });
+                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"].ToString(), Description = pubCont[i]["dieta"], foto = pubCont [i]["foto"], autor = pubCont[i]["autor"], tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"], precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"]    });
                     JsonObject actPub = new JsonObject();
                 }
                 catch (Exception e)
