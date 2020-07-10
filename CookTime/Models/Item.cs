@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace CookTime.Models
 {
@@ -7,5 +8,6 @@ namespace CookTime.Models
         public string Id { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
+       
     }
 }

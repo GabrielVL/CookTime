@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
+using Newtonsoft.Json.Converters;
 
 namespace CookTime
 {
+
     class RestClient
     {
-
-        public async void Peticion (Label ChangedLabel)
+        public async void Peticion(Label ChangedLabel)
         {
-
-            try
+           
+                try
             {
                 /*
                 var request = new HttpRequestMessage();
@@ -39,12 +40,11 @@ namespace CookTime
                 WebResponse response = request.GetResponse();
 
                 var reader = new StreamReader(response.GetResponseStream());
-                ChangedLabel.Text = reader.ReadToEnd();    
+                ChangedLabel.Text = reader.ReadToEnd();
                 */
-                WebClient webClient = new WebClient();
-                webClient.QueryString.Add("ID", "1");
-                webClient.QueryString.Add("DATA", "correo");
 
+
+                WebClient webClient = new WebClient();
                 string result = webClient.DownloadString("http://192.168.100.2:8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
@@ -53,8 +53,6 @@ namespace CookTime
                 ChangedLabel.Text = e.Message;
 
             }
-
-        }
-
+    }
     }
 }

@@ -3,26 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CookTime.Models;
+using System.Json;
+using System.Net;
 
 namespace CookTime.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
         readonly List<Item> items;
-
+        JsonArray pubCont = new JsonArray();
         public MockDataStore()
         {
+
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                
             };
+            Peticion();
+            Publicar();
         }
 
+        public async void Peticion()
+        {
+            String url = "http://192.168.100.2:8080/CookTime_Web_exploded/users";
+
+
+            WebClient nombre = new WebClient();
+            //nombre.QueryString.Add("ID", "1");
+            //nombre.QueryString.Add("DATA", "nombre");
+            pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
+        }
+
+        public void Publicar() {
+
+            for (int i = 0; i < 3; i++)
+            {
+                items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"].ToString(), Description = "Descripcion"});
+                JsonObject actPub = new JsonObject();
+                //String titulo = actPub["nombre"].ToString();
+
+            }
+
+
+        }
         public async Task<bool> AddItemAsync(Item item)
         {
             items.Add(item);
