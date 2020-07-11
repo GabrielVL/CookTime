@@ -9,7 +9,6 @@
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>        
-        <ToolbarItem Text="Perfil"  Clicked="ShowProfile_Clicked"/>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
         <ToolbarItem Text="Registrar"  Clicked="AddUser_Clicked"/>
 
