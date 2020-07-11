@@ -44,6 +44,11 @@ namespace CookTime.Views
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
         }
 
+        async void ShowProfile_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ProfilePage()));
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

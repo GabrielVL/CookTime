@@ -26,6 +26,8 @@
         <Label Text="Contraseña" FontSize="Medium" />
         <Entry x:Name="Contrasena"   FontSize="Small" />
 
+        <Label x:Name="prueba" Text="pruebaxd" FontSize="Medium" />
+
 
     </StackLayout>
     
