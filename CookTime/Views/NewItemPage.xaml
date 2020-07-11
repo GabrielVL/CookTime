@@ -12,8 +12,6 @@
     <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
         <Button Text="Añadir Receta" Clicked="enviarFormulario" />
 
-
-
         <Label Text="Id" FontSize="Medium" />
         <Entry x:Name="Id"  FontSize="Small" ></Entry>
         <Label Text="Nombre" FontSize="Medium" />
@@ -39,6 +37,5 @@
 
     </StackLayout>
     </ScrollView>
-
 
 </ContentPage>
