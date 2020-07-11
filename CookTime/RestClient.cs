@@ -45,6 +45,7 @@ namespace CookTime
                 */
 
                 MyIp myIps = new MyIp();
+                WebClient webClient = new WebClient();
                 string result = webClient.DownloadString("http://" + myIps.returnIP() + ":8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
