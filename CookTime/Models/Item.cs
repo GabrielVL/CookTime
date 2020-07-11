@@ -13,7 +13,9 @@ namespace CookTime.Models
         public string tiempo { get; set; }
         public string instrucciones { get; set; }
         public string precio { get; set; }
+        public string porciones { get; set; }
         public string dificultad { get; set; }
+        public string dieta { get; set; }
 
     }
 
@@ -27,7 +29,6 @@ namespace CookTime.Models
         public string Edad { get; set; }
         public string Contraseña { get; set; }
         public string Perfil { get; set; }
-
 
 
 

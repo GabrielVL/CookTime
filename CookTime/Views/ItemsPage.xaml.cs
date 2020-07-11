@@ -43,10 +43,7 @@ namespace CookTime.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
         }
-        async void MyMenu(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new MyMenu()));
-        }
+
 
         async void ShowProfile_Clicked(object sender, EventArgs e)
         {
