@@ -29,14 +29,14 @@ namespace CookTime.Views
                 
             });
         }
-
-        }
-        void Handle_Clicked(object sender, System.EventArgs e)
+        public void Handle_Clicked(object sender, System.EventArgs e)
         {
             RestClient client = new RestClient();
             client.Peticion(ChangedLabel);
         }
+
+    }     
     }
-    }
+    
 
 
