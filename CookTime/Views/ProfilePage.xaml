@@ -7,6 +7,10 @@
              x:Class="CookTime.Views.ProfilePage"
              Title="Perfil">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="MyMenu" Clicked="MyMenu" />
+    </ContentPage.ToolbarItems>
+
 
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">

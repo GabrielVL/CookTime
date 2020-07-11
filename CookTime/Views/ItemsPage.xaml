@@ -12,7 +12,6 @@
         <ToolbarItem Text="Perfil"  Clicked="ShowProfile_Clicked"/>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
         <ToolbarItem Text="Registrar"  Clicked="AddUser_Clicked"/>
-        <ToolbarItem Text="MyMenu" Clicked="MyMenu" />
     </ContentPage.ToolbarItems>
 
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
