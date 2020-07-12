@@ -12,10 +12,97 @@
     </ContentPage.ToolbarItems>
 
 
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="funciona" FontSize="Medium" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
+
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="username"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Grid.Row="1"
+               Text="Nombre de usuario"
+               FontSize="20"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <Label x:Name="correo"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Grid.Row="2"
+               FontSize="20"
+               Text="Correo"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <Label
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Grid.Row="1"
+               Grid.RowSpan="3"
+               FontSize="20"
+               Text="Aquí va la foto de perfil"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+
+
+        <Button 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="5"
+            Text="Administrar Perfil" />
+
+        <Button 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            Text="Seguidores" />
+
+
+        <Button 
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            Text="Seguidos" />
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="9"
+            Text="MyMenu" />
+
+        <Button 
+            Clicked="About_Clicked"
+            Grid.Column="0"
+            Grid.Row="11"
+            HorizontalOptions="End"
+            Text="App info" />
+
+
+
+
+
+    </Grid>
 
 </ContentPage>

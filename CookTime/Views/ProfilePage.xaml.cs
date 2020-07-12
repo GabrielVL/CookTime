@@ -20,6 +20,9 @@ namespace CookTime.Views
             await Navigation.PushModalAsync(new NavigationPage(new MyMenu()));
         }
 
-
+        async void About_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
+        }
     }
 }

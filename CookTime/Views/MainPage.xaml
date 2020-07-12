@@ -20,9 +20,9 @@
 
         </NavigationPage>
 
-        <NavigationPage Title="About">
+        <NavigationPage Title="Perfil">
             <x:Arguments>
-                <views:AboutPage />
+                <views:ProfilePage />
             </x:Arguments>
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
