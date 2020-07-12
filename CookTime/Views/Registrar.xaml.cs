@@ -24,13 +24,13 @@ namespace CookTime.Views
             InitializeComponent();
             User = new User
             {
-                Nombre = "Nombre del usuario",
-                PrimerApellido = "Primer apellido",
-                SegundoApellido = "Segundo apellido",
-                Correo = "Corrreo Electrónico",
-                Edad = "Edad",
-                Contraseña = "Contraseña",
-                Perfil = "Perfil del usuario",
+                nombre = "Nombre del usuario",
+                apellido1 = "Primer apellido",
+                apellido2 = "Segundo apellido",
+                correo = "Corrreo Electrónico",
+                edad = "Edad",
+                contrasena = "Contraseña",
+                perfil = "Perfil del usuario",
                 
                 
             };

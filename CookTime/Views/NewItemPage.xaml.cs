@@ -54,6 +54,9 @@ namespace CookTime.Views
             Receta.Add("dificultad", Dificultad.Text);
             Receta.Add("foto", Foto.Text);
             registration(Receta);
+
+            MessagingCenter.Send(this, "AddItem", Receta);
+            await Navigation.PopModalAsync();
         }
 
 
