@@ -1,9 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Net;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CookTime.Views
 {
@@ -31,14 +29,10 @@ namespace CookTime.Views
                 
             });
         }
-        void Handle_Clicked(object sender, System.EventArgs e)
+        public void Handle_Clicked(object sender, System.EventArgs e)
         {
-            WebClient webClient = new WebClient();
-            webClient.QueryString.Add("ID", "1");
-            webClient.QueryString.Add("DATA", "correo");
-
-            string result = webClient.DownloadString("http://192.168.100.2:8080/CookTime_Web_exploded/users");
-            ChangedLabel.Text = result;
+            RestClient client = new RestClient();
+            client.Peticion(ChangedLabel);
         }
 
     }     
