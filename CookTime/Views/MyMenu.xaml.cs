@@ -1,4 +1,13 @@
-﻿using System;
+﻿using CookTime.Models;
+using CookTime.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,11 +25,11 @@ namespace CookTime.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class ItemsPage : ContentPage
+    public partial class MyMenu : ContentPage
     {
         ItemsViewModel viewModel;
 
-        public ItemsPage()
+        public MyMenu()
         {
             InitializeComponent();
 
@@ -33,23 +42,6 @@ namespace CookTime.Views
             var item = (Item)layout.BindingContext;
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
         }
-
-        async void AddItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
-
-        async void AddUser_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
-        }
-
-
-        async void ShowProfile_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new ProfilePage()));
-        }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();

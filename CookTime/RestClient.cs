@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
+using System.Json;
+using CookTime.Views;
 
 namespace CookTime
 {
+
     class RestClient
     {
-
-        public async void Peticion (Label ChangedLabel)
+        public async void Peticion(Label ChangedLabel)
         {
-
-            try
+           
+                try
             {
                 /*
                 var request = new HttpRequestMessage();
@@ -40,13 +41,12 @@ namespace CookTime
                 WebResponse response = request.GetResponse();
 
                 var reader = new StreamReader(response.GetResponseStream());
-                ChangedLabel.Text = reader.ReadToEnd();    
+                ChangedLabel.Text = reader.ReadToEnd();
                 */
-                WebClient webClient = new WebClient();
-                webClient.QueryString.Add("ID", "1");
-                webClient.QueryString.Add("DATA", "correo");
 
-                string result = webClient.DownloadString("http://192.168.100.91:8080/CookTime_Web_exploded/users");
+                MyIp myIps = new MyIp();
+                WebClient webClient = new WebClient();
+                string result = webClient.DownloadString("http://" + myIps.returnIP() + ":8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
             }
             catch (Exception e)
@@ -54,8 +54,6 @@ namespace CookTime
                 ChangedLabel.Text = e.Message;
 
             }
-
-        }
-
+    }
     }
 }

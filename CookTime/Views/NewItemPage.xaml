@@ -1,24 +1,41 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CookTime.Views.NewItemPage"
-             Title="New Item">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-    </ContentPage.ToolbarItems>
-    
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
-        </StackLayout>
-    </ContentPage.Content>
-    
+             xmlns:vm="clr-namespace:CookTime.Views"
+             Title="Crear Receta"
+             x:Name="BrowseItemsPage">
+    <ScrollView>
+    <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+        <Button Text="Añadir Receta" Clicked="enviarFormulario" />
+
+        <Label Text="Id" FontSize="Medium" />
+        <Entry x:Name="Id"  FontSize="Small" ></Entry>
+        <Label Text="Nombre" FontSize="Medium" />
+        <Entry x:Name="Nombre"    FontSize="Small" />
+        <Label Text="Autor" FontSize="Medium" />
+        <Entry x:Name="Autor" FontSize="Small" />
+        <Label Text="Tipo" FontSize="Medium" />
+        <Entry x:Name="Tipo"  FontSize="Small" />
+        <Label Text="Tiempo" FontSize="Medium" />
+        <Entry x:Name="Tiempo"  FontSize="Small" />
+        <Label Text="Dieta" FontSize="Medium" />
+        <Entry x:Name="Dieta"  FontSize="Small" />
+        <Label Text="Instrucciones" FontSize="Medium" />
+        <Entry x:Name="Instrucciones"   FontSize="Small" />
+        <Label Text="Precio" FontSize="Medium" />
+        <Entry x:Name="Precio"   FontSize="Small" />
+        <Label Text="Porciones" FontSize="Medium" />
+        <Entry x:Name="Porciones"   FontSize="Small" />
+        <Label Text="Dificultad" FontSize="Medium" />
+        <Entry x:Name="Dificultad"   FontSize="Small" />
+        <Label Text="Foto" FontSize="Medium" />
+        <Entry x:Name="Foto"   FontSize="Small" />
+
+    </StackLayout>
+    </ScrollView>
+
 </ContentPage>

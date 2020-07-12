@@ -12,6 +12,13 @@
         <Label Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
         <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.autor}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.tiempo}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.instrucciones}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.precio}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Image:" FontSize="Medium"/>
+        <Image HeightRequest="200" WidthRequest="200" Source="{Binding Item.foto}"></Image>
     </StackLayout>
     
 </ContentPage>

@@ -4,15 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CookTime.Views.ItemsPage"
-             Title="CookTime"
+             x:Class="CookTime.Views.MyMenu"
+             Title="MyMenu"
              x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>        
-        <ToolbarItem Text="Perfil"  Clicked="ShowProfile_Clicked"/>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-        <ToolbarItem Text="Registrar"  Clicked="AddUser_Clicked"/>
-    </ContentPage.ToolbarItems>
 
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
         <CollectionView x:Name="ItemsCollectionView"
@@ -43,5 +37,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView> 
+    </RefreshView>
 </ContentPage>

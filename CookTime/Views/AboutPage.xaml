@@ -7,11 +7,11 @@
              x:Class="CookTime.Views.AboutPage"
              xmlns:vm="clr-namespace:CookTime.ViewModels"
              Title="{Binding Title}">
-    
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
@@ -70,14 +70,10 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Entry x:Name="entry" Text="users">
-                </Entry>
-                <Button Text="Display JSON" Clicked="Handle_Clicked" />
                 <Label x:Name="ChangedLabel" Text="Test">
                 </Label>
                 <Button Text="Click Me" Clicked="Handle_Clicked" />
             </StackLayout>
         </ScrollView>
     </Grid>
-    
 </ContentPage>
