@@ -42,7 +42,7 @@ namespace CookTime.Views
         {
             
             JsonObject Receta = new JsonObject ();
-            Receta.Add("id", Id.Text);
+            Receta.Add("id", xd.Text);
             Receta.Add("nombre",Nombre.Text);
             Receta.Add("autor", Autor.Text);
             Receta.Add("tipo", Tipo.Text);

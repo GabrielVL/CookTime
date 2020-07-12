@@ -13,7 +13,7 @@
         <Button Text="Añadir Receta" Clicked="enviarFormulario" />
 
         <Label Text="Id" FontSize="Medium" />
-        <Entry x:Name="Id"  FontSize="Small" ></Entry>
+        <Entry x:Name="xd"  FontSize="Small" ></Entry>
         <Label Text="Nombre" FontSize="Medium" />
         <Entry x:Name="Nombre"    FontSize="Small" />
         <Label Text="Autor" FontSize="Medium" />
