@@ -72,7 +72,7 @@
                 </Label>
                 <Entry x:Name="entry" Text="users">
                 </Entry>
-                <Button Text="Display JSON" Clicked="Handle_Clicked" />
+                <Button Text="Display JSON" Clicked="DisplayJSON" />
                 <Label x:Name="ChangedLabel" Text="Test">
                 </Label>
                 <Button Text="Click Me" Clicked="Handle_Clicked" />

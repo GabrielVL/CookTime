@@ -14,18 +14,16 @@ namespace CookTime.Views
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        public void DisplayJSON(object sender, System.EventArgs e)
         {
-            base.OnAppearing();
-
-            Device.BeginInvokeOnMainThread( async () =>
+            if (entry.Text == "users")
             {
-                RestClient client = new RestClient();
-                client.Peticion(ChangedLabel); 
-                
-                    
-                
-            });
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    RestClient client = new RestClient();
+                    client.Peticion(ChangedLabel);
+                });
+            }
         }
 
         void Handle_Clicked(object sender, System.EventArgs e)

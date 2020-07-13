@@ -43,8 +43,8 @@ namespace CookTime
                 ChangedLabel.Text = reader.ReadToEnd();    
                 */
                 WebClient webClient = new WebClient();
-                webClient.QueryString.Add("ID", "1");
-                webClient.QueryString.Add("DATA", "correo");
+                // webClient.QueryString.Add("ID", "1");
+                // webClient.QueryString.Add("DATA", "correo");
 
                 string result = webClient.DownloadString("http://192.168.100.91:8080/CookTime_Web_exploded/users");
                 ChangedLabel.Text = result;
