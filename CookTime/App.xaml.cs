@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CookTime.Services;
 using CookTime.Views;
+using Xamarin.Forms.Internals;
+using Xamarin.Essentials;
 
 namespace CookTime
 {
@@ -14,7 +16,7 @@ namespace CookTime
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            MainPage = new LogIn();
         }
 
         protected override void OnStart()

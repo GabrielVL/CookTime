@@ -6,6 +6,9 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ProfilePage"
              Title="Perfil">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About" Clicked="About_Clicked" />
+    </ContentPage.ToolbarItems>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -72,7 +75,8 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="7"
-            Text="Seguidores" />
+            Text="Seguidores"
+            Clicked="Seguidores"/>
 
 
         <Button 
@@ -87,14 +91,6 @@
             Grid.Row="9"
             Text="MyMenu"
             Clicked="MyMenu"/>
-
-        <Button 
-            Clicked="About_Clicked"
-            Grid.Column="0"
-            Grid.Row="11"
-            HorizontalOptions="End"
-            Text="App info" />
-
 
 
 
