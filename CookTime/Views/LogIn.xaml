@@ -13,6 +13,9 @@
             <Button Text="Iniciar Sesion" Clicked="MainPage" />
             <Button Text="Registrarse" Clicked="Registrar" />
 
+            <Label Text="Result" FontSize="Medium"
+                   x:Name="Result"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
