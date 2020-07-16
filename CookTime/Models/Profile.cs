@@ -8,7 +8,9 @@ namespace CookTime
     // Root myDeserializedClass = JsonConvert.DeserializeObject(myJsonResponse); 
     public class Profile
     {
-        public string name { get; set; }
+        public string name(String name) {
+            return name;
+        }
 
     }
 

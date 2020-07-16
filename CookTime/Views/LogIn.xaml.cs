@@ -15,7 +15,7 @@ namespace CookTime.Views
     public partial class LogIn : ContentPage
     {
 
-        readonly List<User> users;
+        String id;
         JsonArray pubCont = new JsonArray();
         public LogIn()
         {
@@ -41,6 +41,7 @@ namespace CookTime.Views
                     //Result.Text = nombre;
                     if (correo.Equals(pubCont[i]["correo"]) && contraseña.Equals(pubCont[i]["contrasena"]))
                     {
+                        id = pubCont[i]["id"];
                         answer = true;
                         return answer;
                     }
@@ -58,6 +59,9 @@ namespace CookTime.Views
             if (Comparar(Correo.Text.ToString(), Contraseña.Text.ToString()))
             {
                 await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
+                Profile perfil = new Profile();
+                perfil.name(id);
+
             }
             else
             {
@@ -67,15 +71,25 @@ namespace CookTime.Views
         async void Registrar(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
+
         }
 
 
         async void Bypass(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
+            
         }
 
 
+        Profile x = new Profile
+        {
+
+            //name = "hola"
+        };
+
+
+        
 
     }
     

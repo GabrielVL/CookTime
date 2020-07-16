@@ -32,7 +32,7 @@ namespace CookTime.Views
             RestClient client = new RestClient();
             client.Peticion(ChangedLabel);
         }
-
+         
     }     
     }
     
