@@ -9,8 +9,8 @@ namespace CookTime.Views
 
     class MyIp
     {
-        //Ip de Yordan
-        private String ip = "192.168.100.2";
+        
+        private String ip = "192.168.1.5:8081";
 
         public String returnIP()
         {

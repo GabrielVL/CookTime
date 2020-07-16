@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CookTime.Models;
 using System.Json;
 using System.Net;
+using CookTime.Views;
 
 namespace CookTime.Services
 {
@@ -21,11 +22,13 @@ namespace CookTime.Services
             };
             Peticion();
             Publicar();
+        
         }
 
         public async void Peticion()
         {
-            String url = "http://192.168.100.2:8080/CookTime_Web_exploded/recipes";
+            MyIp myIps = new MyIp();
+            String url = "http://"+myIps.returnIP()+"/CookTime_Web_exploded/recipes";
 
 
             WebClient nombre = new WebClient();

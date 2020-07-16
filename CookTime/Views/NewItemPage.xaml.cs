@@ -71,7 +71,7 @@ namespace CookTime.Views
 
             MyIp myIps = new MyIp();
 
-            var response = await client.PostAsync("http://"+myIps.returnIP()+":8080/CookTime_Web_exploded/recipes", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_Web_exploded/recipes", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
             
         } 
 

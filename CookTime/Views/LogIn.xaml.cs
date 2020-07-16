@@ -23,7 +23,8 @@ namespace CookTime.Views
         }
         public async void Peticion()
         {
-            String url = "http://192.168.100.2:8080/CookTime_Web_exploded/users";
+            MyIp myIps = new MyIp();
+            String url = "http://"+myIps.returnIP()+"/CookTime_Web_exploded/users";
 
 
             WebClient nombre = new WebClient();
@@ -37,7 +38,7 @@ namespace CookTime.Views
                 answer = false;
                 try
                 {
-                    Result.Text = nombre;
+                    //Result.Text = nombre;
                     if (nombre.Equals(pubCont[i]["nombre"]))
                     {
                         answer = true;
@@ -54,7 +55,7 @@ namespace CookTime.Views
         async void MainPage(object sender, EventArgs e)
         {
             Peticion();
-            if (Comparar(Nombre.Text.ToString()))
+            if (Comparar(Correo.Text.ToString()))
             {
                 await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
             }
@@ -67,6 +68,15 @@ namespace CookTime.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
         }
+
+
+        async void Bypass(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
+        }
+
+
+
     }
     
 }
