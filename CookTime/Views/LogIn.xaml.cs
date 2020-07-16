@@ -30,7 +30,7 @@ namespace CookTime.Views
             WebClient nombre = new WebClient();
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
         }
-        public Boolean Comparar(String nombre)
+        public Boolean Comparar(String correo, String contraseña)
         {
             Boolean answer = true;
             for (int i = 0; i < pubCont.Count; i++)
@@ -39,7 +39,7 @@ namespace CookTime.Views
                 try
                 {
                     //Result.Text = nombre;
-                    if (nombre.Equals(pubCont[i]["nombre"]))
+                    if (correo.Equals(pubCont[i]["correo"]) && contraseña.Equals(pubCont[i]["contrasena"]))
                     {
                         answer = true;
                         return answer;
@@ -55,7 +55,7 @@ namespace CookTime.Views
         async void MainPage(object sender, EventArgs e)
         {
             Peticion();
-            if (Comparar(Correo.Text.ToString()))
+            if (Comparar(Correo.Text.ToString(), Contraseña.Text.ToString()))
             {
                 await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
             }
