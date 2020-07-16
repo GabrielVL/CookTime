@@ -8,6 +8,7 @@ using System.Net;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Json;
+using CookTime.Services;
 
 namespace CookTime.Views
 {
@@ -42,6 +43,7 @@ namespace CookTime.Views
                     if (correo.Equals(pubCont[i]["correo"]) && contraseña.Equals(pubCont[i]["contrasena"]))
                     {
                         id = pubCont[i]["id"];
+                        config.setMyId(id);
                         answer = true;
                         return answer;
                     }
