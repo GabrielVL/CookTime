@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Json;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Xml.Xsl;
 
@@ -9,6 +11,8 @@ namespace CookTime.Services
     {
         private static String myId;
         private static config conf;
+        private static JsonObject perfil;
+        private static JsonObject perfilOficial;
         private config()
         {
             
@@ -32,6 +36,21 @@ namespace CookTime.Services
         {
             myId = id;
         }
-        
+
+        public static JsonObject getPerfil()
+        {
+            return perfil;
+        }
+        public static void setPerfil(JsonObject profile)
+        {
+            perfil = profile;
+            perfilOficial = (JsonObject) perfil["perfil"];
+        }
+
+        public static JsonObject getPerfilOficial()
+        {
+            return perfilOficial;
+        }
+
     } 
 }

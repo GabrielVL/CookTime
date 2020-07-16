@@ -5,7 +5,9 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:CookTime.Views"
-            x:Class="CookTime.Views.MainPageI">
+            x:Class="CookTime.Views.MainPageI"
+            BarBackgroundColor="#89D5C5">
+    
     
 
     <TabbedPage.Children>

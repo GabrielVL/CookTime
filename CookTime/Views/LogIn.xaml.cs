@@ -17,6 +17,7 @@ namespace CookTime.Views
     {
 
         String id;
+        JsonObject perfil;
         JsonArray pubCont = new JsonArray();
         public LogIn()
         {
@@ -44,6 +45,9 @@ namespace CookTime.Views
                     {
                         id = pubCont[i]["id"];
                         config.setMyId(id);
+                        config.setPerfil((JsonObject)pubCont[i]);
+                        
+
                         answer = true;
                         return answer;
                     }
@@ -82,13 +86,6 @@ namespace CookTime.Views
             await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
             
         }
-
-
-        Profile x = new Profile
-        {
-
-            //name = "hola"
-        };
 
 
         

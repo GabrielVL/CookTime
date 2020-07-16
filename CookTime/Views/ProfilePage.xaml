@@ -53,16 +53,13 @@
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
-        <Label
+        <Image Source ="{Binding Source}"
+               x:Name="Foto"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                Grid.Row="1"
                Grid.RowSpan="3"
-               FontSize="20"
-               Text="Aquí va la foto de perfil"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-
+               ></Image>
 
 
         <Button 
