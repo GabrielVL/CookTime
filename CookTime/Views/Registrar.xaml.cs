@@ -50,6 +50,7 @@ namespace CookTime.Views
             Usuario.Add("correo",Correo.Text);
             prueba.Text = Nombre.Text + PrimerApellido.Text;
             registration(Usuario);
+            await Navigation.PopModalAsync();
         }
 
 

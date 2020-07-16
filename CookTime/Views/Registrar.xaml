@@ -8,11 +8,8 @@
              xmlns:vm="clr-namespace:CookTime.Views"
              Title="{Binding Title}">
     <ScrollView>
-    <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-            <Button Text="Registrarse" Clicked="enviarFormulario" />
-
-
-
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            
         <Label Text="Nombre" FontSize="Medium" />
         <Entry x:Name="Nombre"  FontSize="Small" ></Entry>
         <Label Text="Primer Apellido" FontSize="Medium" />
@@ -26,9 +23,11 @@
         <Label Text="Contraseña" FontSize="Medium" />
         <Entry x:Name="Contrasena"   FontSize="Small" />
         <Label x:Name="prueba" Text="pruebaxd" FontSize="Medium" />
+        
+        <Button Text="Registrarse" Clicked="enviarFormulario" />
 
 
-    </StackLayout>
+        </StackLayout>
     </ScrollView>
 
 

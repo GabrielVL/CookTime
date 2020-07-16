@@ -34,6 +34,10 @@ namespace CookTime.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
         }
+        async void Administrar(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new Administrar()));
+        }
 
         public void GetProfile(String id)
         {
