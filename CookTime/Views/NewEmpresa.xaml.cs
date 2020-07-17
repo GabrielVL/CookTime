@@ -7,7 +7,6 @@ using Xamarin.Forms.Xaml;
 using System.Json;
 using System.Net;
 using System.Text;
-using CookTime.Models;
 using System.Net.Http;
 
 namespace CookTime.Views

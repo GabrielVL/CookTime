@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.Search"
+             xmlns:vm="clr-namespace:CookTime.Views"
+             Title="{Binding Title}">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label Text="Bienvenido a la barra de busqueda" FontSize="Medium" />
+            <Entry x:Name="Nombre"  FontSize="Small" ></Entry>
+            <Button Text="Buscar" Clicked="Busqueda" />
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

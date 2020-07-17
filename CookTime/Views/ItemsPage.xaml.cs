@@ -43,8 +43,10 @@ namespace CookTime.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
         }
-
-
+        async void Buscar(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new Search()));
+        }
 
         protected override void OnAppearing()
         {

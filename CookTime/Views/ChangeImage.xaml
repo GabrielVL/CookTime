@@ -7,9 +7,10 @@
              x:Class="CookTime.Views.ChangeImage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Cambiar su imagen de perfil"/>
+            <Label Text="Introduzca el link de su nueva imagen de perfil"/>
+            <Entry x:Name="Imagen"/>
+            <Button Text ="Cambiar mi imagen"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

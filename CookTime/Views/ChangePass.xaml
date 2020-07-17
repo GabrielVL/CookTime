@@ -7,9 +7,10 @@
              x:Class="CookTime.Views.ChangePass">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Cambiar su contraseña"/>
+            <Label Text="Introduzca su nueva contraseña"/>
+            <Entry x:Name="Password"/>
+            <Button Text="Cambiar contraseña"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
