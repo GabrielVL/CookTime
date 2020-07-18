@@ -24,15 +24,14 @@ namespace CookTime.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new MyMenu()));
         }
-        async void Seguidores(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new Seguidores()));
-            
-        }
 
         async void About_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
+        }
+        async void NewMap(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new Page1()));
         }
         async void Administrar(object sender, EventArgs e)
         {
