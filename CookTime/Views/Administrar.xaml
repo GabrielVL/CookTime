@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.Administrar">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+
+
+        <Button 
+            Grid.Row="3"
+            Text="Cambiar nombre de usuario"
+            Clicked="ChangeName"/>
+
+        <Button 
+            Grid.Row="5"
+            Text="Cambiar contraseña"
+            Clicked="ChangePass"/>
+        
+        <Button 
+            Grid.Row="7"
+            Text="Cambiar imagen de perfil"
+            Clicked="ChangeImage"/>
+
+        <Button 
+            Grid.Row="9"
+            Text="Crear Empresa"
+            Clicked="NewEmpresa"/>
+
+    </Grid>
+
+</ContentPage>

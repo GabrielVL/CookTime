@@ -63,31 +63,25 @@
 
 
         <Button 
-            Grid.Column="0"
+            Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.Row="5"
-            Text="Administrar Perfil" />
-
-        <Button 
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Grid.Row="7"
-            Text="Seguidores"
-            Clicked="Seguidores"/>
-
-
-        <Button 
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
-            Grid.Row="7"
-            Text="Seguidos" />
+            Text="Administrar Perfil"
+            Clicked="Administrar"/>
 
         <Button 
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            Grid.Row="9"
+            Grid.Row="8"
             Text="MyMenu"
             Clicked="MyMenu"/>
+        
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="9"
+            Text="Mapa"
+            Clicked="NewMap"/>
 
 
 
