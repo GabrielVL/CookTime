@@ -7,80 +7,61 @@ namespace CookTime.Services
     public class LinkedListSort<T> where T : IComparable
     {
 
-        public Node head;
-        public Node sorted;
+        public Node<T> head;
+        public Node<T> sorted;
 
-        public class Node
+        public class Node<T> where T : IComparable
         {
-            public int val;
-            public Node next;
+            public T val;
+            public Node<T> next;
 
-            public Node(int val)
+            public Node(T val)
             {
                 this.val = val;
             }
         }
 
-        void push(int val)
+        // Inserta un nodo al principio de la lista (similar a una pila)
+        void push(T val)
         {
-            /* allocate node */
-            Node newnode = new Node(val);
-
-            /* link the old list off the new node */
+            Node<T> newnode = new Node<T>(val);
             newnode.next = head;
-
-            /* move the head to point to the new node */
             head = newnode;
         }
 
-        // function to sort a singly  
-        // linked list using insertion sort 
-        void insertionSort(Node headref)
+        // Ordena la lista usando insertion sort con el primer nodo de la lista
+        void insertionSort(Node<T> headref)
         {
-            // Initialize sorted linked list 
             sorted = null;
-            Node current = headref;
+            Node<T> current = headref;
 
-            // Traverse the given  
-            // linked list and insert every 
-            // node to sorted 
+            // Recorre la lista insertando los nodos en orden con sortedInsert
             while (current != null)
             {
-                // Store next for next iteration 
-                Node next = current.next;
-
-                // insert current in sorted linked list 
+                Node<T> next = current.next;
                 sortedInsert(current);
-
-                // Update current 
                 current = next;
             }
 
-            // Update head_ref to point to sorted linked list 
             head = sorted;
         }
 
-        /* 
-        * function to insert a new_node in a list. Note that  
-        * this function expects a pointer to head_ref as this 
-        * can modify the head of the input linked list  
-        * (similar to push()) 
-        */
-        void sortedInsert(Node newnode)
+        // Inserta los nodos en orden
+        private void sortedInsert(Node<T> newnode)
         {
-            /* Special case for the head end */
-            if (sorted == null || sorted.val >= newnode.val)
+            // Caso especial para el head
+            if (sorted == null || sorted.val.CompareTo(newnode.val) >= 0)
             {
                 newnode.next = sorted;
                 sorted = newnode;
             }
             else
             {
-                Node current = sorted;
+                Node<T> current = sorted;
 
-                /* Locate the node before the point of insertion */
+                // Busca dónde insertar el nodo
                 while (current.next != null &&
-                        current.next.val < newnode.val)
+                        current.next.val.CompareTo(newnode.val) < 0)
                 {
                     current = current.next;
                 }
@@ -89,8 +70,8 @@ namespace CookTime.Services
             }
         }
 
-        /* Function to print linked list */
-        void printlist(Node head)
+        // Imprime la lista
+        void printlist(Node<T> head)
         {
             while (head != null)
             {
@@ -99,19 +80,19 @@ namespace CookTime.Services
             }
         }
 
-        // Driver code 
+        // Prueba
         public static void Main(String[] args)
         {
-            LinkedListSort list = new LinkedListSort();
+            LinkedListSort<Int32> list = new LinkedListSort<Int32>();
             list.push(5);
             list.push(20);
             list.push(4);
             list.push(3);
             list.push(30);
-            Console.WriteLine("Linked List before Sorting..");
+            Console.WriteLine("Lista antes de ordenar");
             list.printlist(list.head);
             list.insertionSort(list.head);
-            Console.WriteLine("\nLinkedList After sorting");
+            Console.WriteLine("\nLista después de ordenar");
             list.printlist(list.head);
         }
     }
