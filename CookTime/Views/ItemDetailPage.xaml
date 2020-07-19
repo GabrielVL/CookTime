@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ItemDetailPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Eliminar"  />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
 
@@ -18,31 +22,41 @@
                />
 
             <Label />
-            <Label Text="Dieta" FontSize="25" TextColor="#89D5C5"  />
-            <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="20" />
+            <Label Text="Dieta" FontSize="20" TextColor="#89D5C5"  />
+            <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="15" />
             <Label />
 
-            <Label Text="Autor" FontSize="25" TextColor="#89D5C5"/>
-            <Label Text="{Binding Item.autor}" d:Text="Item description" FontSize="20"/>
+            <Label Text="Autor" FontSize="20" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.autor}" d:Text="Item description" FontSize="15"/>
             <Label />
 
-            <Label Text="Tiempo" FontSize="25" TextColor="#89D5C5"/>
-            <Label Text="{Binding Item.tiempo}" d:Text="Item description" FontSize="20" />
+            <Label Text="Tiempo" FontSize="20" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.tiempo}" d:Text="Item description" FontSize="15" />
             <Label />
 
-            <Label Text="Instrucciones" FontSize="25" TextColor="#89D5C5"/>
-            <Label Text="{Binding Item.instrucciones}" d:Text="Item description" FontSize="20" />
+            <Label Text="Instrucciones" FontSize="20" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.instrucciones}" d:Text="Item description" FontSize="15" />
             <Label />
 
-            <Label Text="Precio" FontSize="25" TextColor="#89D5C5" />
-            <Label Text="{Binding Item.precio}" d:Text="Item description" FontSize="20" />
+            <Label Text="Precio" FontSize="20" TextColor="#89D5C5" />
+            <Label Text="{Binding Item.precio}" d:Text="Item description" FontSize="15" />
             <Label />
 
-            <Label Text="Dificultad" FontSize="25" TextColor="#89D5C5" />
-            <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="20" />
+            <Label Text="Dificultad" FontSize="20" TextColor="#89D5C5" />
+            <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="15" />
             <Label />
 
+          
+             
             <Image HeightRequest="200" WidthRequest="200" Source="{Binding Item.foto}"></Image>
+
+
+
+            <Button Text="Like" FontSize="15" BackgroundColor="#89D5C5" Clicked="Like"/>
+            <Button Text="Disike" FontSize="15" BackgroundColor="#89D5C5" Clicked="Dislike"/>
+
+ 
+
         </StackLayout>
 
     </ScrollView>

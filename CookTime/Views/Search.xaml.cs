@@ -27,7 +27,7 @@ namespace CookTime.Views
         {
             MyIp myIps = new MyIp();
             String url = "http://" + myIps.returnIP() +"/CookTime_war_exploded/users?nombre="+Nombre.Text;
-            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?nombre=" + Nombre.Text;
+            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Nombre=" + Nombre.Text;
 
             WebClient nombre = new WebClient();
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
@@ -38,11 +38,19 @@ namespace CookTime.Views
             Peticion();
                 for (int i = 0; i < 5; i++)
                 {
-                        Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"]});
+                    try
+                    {
+                        Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"] });
+                    }
+                    catch {}
                 }
                 for (int i=0; i<5; i++)
                 {
-                Resultado.Add(new ItemBuscado { Desc = pubCont2[i]["autor"].ToString(), nombre = pubCont2[i]["nombre"].ToString(), Foto = pubCont2[i]["foto"]});
+                    try
+                    {
+                        Resultado.Add(new ItemBuscado { Desc = pubCont2[i]["autor"].ToString(), nombre = pubCont2[i]["nombre"].ToString(), Foto = pubCont2[i]["foto"] });
+                    }
+                    catch { }
                 }
 
 

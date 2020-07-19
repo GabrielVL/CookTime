@@ -21,27 +21,58 @@
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
+
+        <Label Text="Administración perfil"
+               Grid.Column="0"
+               Grid.ColumnSpan="5"
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               FontSize="30"
+               TextColor="#89D5C5"/>
 
         <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Grid.Row="3"
             Text="Cambiar nombre de usuario"
-            Clicked="ChangeName"/>
+            Clicked="ChangeName"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
 
         <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Grid.Row="5"
             Text="Cambiar contraseña"
-            Clicked="ChangePass"/>
+            Clicked="ChangePass"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
         
         <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Grid.Row="7"
             Text="Cambiar imagen de perfil"
-            Clicked="ChangeImage"/>
+            Clicked="ChangeImage"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
 
         <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Grid.Row="9"
             Text="Crear Empresa"
-            Clicked="NewEmpresa"/>
+            Clicked="NewEmpresa"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
 
     </Grid>
 

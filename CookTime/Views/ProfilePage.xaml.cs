@@ -40,14 +40,17 @@ namespace CookTime.Views
 
         async void Chef(object sender, EventArgs e)
         {
-           
-            MyIp myIps = new MyIp();
-            String url = "http://" + myIps.returnIP() + "/CookTime_Web_exploded/users?Id="+config.getPerfil()["id"]+"&Target="+ config.getPerfil()["chef"] + "&Value=1";
-            
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "PUT";
+            int x = config.getPerfil()["chef"];
+            if (x != 2)
+            {
+                MyIp myIps = new MyIp();
+                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=chef";
+                WebRequest request = WebRequest.Create(url);
+                request.Method = "PUT";
+                request.GetResponse();
+            }
 
-            chef.Text = request.GetResponse().ToString();
+            else { chef.Text = "Ya eres Chef!"; }
         }
         
 

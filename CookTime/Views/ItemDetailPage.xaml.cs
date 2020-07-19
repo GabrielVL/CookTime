@@ -35,5 +35,15 @@ namespace CookTime.Views
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
+
+        async void Like(object sender, EventArgs e) { 
+
+        
+        }
+
+        async void Dislike(object sender, EventArgs e)
+        {
+
+        }
     }
 }
