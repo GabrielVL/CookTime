@@ -48,7 +48,8 @@ namespace CookTime.Views
             Usuario.Add("edad", Edad.Text);
             Usuario.Add("contrasena",Contrasena.Text);
             Usuario.Add("correo",Correo.Text);
-            prueba.Text = Nombre.Text + PrimerApellido.Text;
+            
+            
             registration(Usuario);
         }
 

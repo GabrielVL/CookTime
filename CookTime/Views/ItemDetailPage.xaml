@@ -4,21 +4,47 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="CookTime.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             x:Class="CookTime.Views.ItemDetailPage">
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="{Binding Item.autor}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="{Binding Item.tiempo}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="{Binding Item.instrucciones}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="{Binding Item.precio}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="Image:" FontSize="Medium"/>
-        <Image HeightRequest="200" WidthRequest="200" Source="{Binding Item.foto}"></Image>
-    </StackLayout>
-    
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+
+            <Label Text="{Binding Item.Text}" d:Text="Item name"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="#89D5C5"
+               TextColor="White"
+               HorizontalTextAlignment="Center"
+               FontSize="30"
+               />
+
+            <Label />
+            <Label Text="Dieta" FontSize="25" TextColor="#89D5C5"  />
+            <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="20" />
+            <Label />
+
+            <Label Text="Autor" FontSize="25" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.autor}" d:Text="Item description" FontSize="20"/>
+            <Label />
+
+            <Label Text="Tiempo" FontSize="25" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.tiempo}" d:Text="Item description" FontSize="20" />
+            <Label />
+
+            <Label Text="Instrucciones" FontSize="25" TextColor="#89D5C5"/>
+            <Label Text="{Binding Item.instrucciones}" d:Text="Item description" FontSize="20" />
+            <Label />
+
+            <Label Text="Precio" FontSize="25" TextColor="#89D5C5" />
+            <Label Text="{Binding Item.precio}" d:Text="Item description" FontSize="20" />
+            <Label />
+
+            <Label Text="Dificultad" FontSize="25" TextColor="#89D5C5" />
+            <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="20" />
+            <Label />
+
+            <Image HeightRequest="200" WidthRequest="200" Source="{Binding Item.foto}"></Image>
+        </StackLayout>
+
+    </ScrollView>
+
 </ContentPage>
