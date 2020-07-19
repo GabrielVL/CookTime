@@ -2,7 +2,8 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Net.Http;
+using System.Json;
 using CookTime.Models;
 using CookTime.ViewModels;
 
@@ -36,14 +37,22 @@ namespace CookTime.Views
             BindingContext = viewModel;
         }
 
-        async void Like(object sender, EventArgs e) { 
+        async void Like(object sender, EventArgs e) {
 
-        
+
         }
 
         async void Dislike(object sender, EventArgs e)
         {
 
         }
+
+        async void Borrar(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

@@ -43,7 +43,7 @@ namespace CookTime.Services
             {
                 try
                 {
-                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"], Description = pubCont[i]["dieta"], foto = pubCont [i]["foto"], autor = pubCont[i]["autor"], tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"], precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"]    });
+                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"], Description = pubCont[i]["dieta"], foto = pubCont [i]["foto"], autor = pubCont[i]["autor"], tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"], precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"], likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"] });
                     JsonObject actPub = new JsonObject();
                 }
                 catch (Exception e)

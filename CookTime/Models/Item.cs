@@ -16,6 +16,9 @@ namespace CookTime.Models
         public string porciones { get; set; }
         public string dificultad { get; set; }
         public string dieta { get; set; }
+        public string likes { get; set; }
+        public string dislikes { get; set; }
+
 
     }
 

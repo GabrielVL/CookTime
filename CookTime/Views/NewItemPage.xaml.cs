@@ -31,7 +31,10 @@ namespace CookTime.Views
                 precio = "Precio",
                 porciones = "Porciones",
                 dificultad = "Dificultad",
-                foto = "Foto"
+                foto = "Foto",
+                likes = "Likes",
+                dislikes = "Dislikes",
+
                 
             };
 

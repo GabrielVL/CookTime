@@ -46,15 +46,19 @@
             <Label Text="{Binding Item.dificultad}" d:Text="Item description" FontSize="15" />
             <Label />
 
-          
-             
+
+
             <Image HeightRequest="200" WidthRequest="200" Source="{Binding Item.foto}"></Image>
-
-
-
+            
             <Button Text="Like" FontSize="15" BackgroundColor="#89D5C5" Clicked="Like"/>
-            <Button Text="Disike" FontSize="15" BackgroundColor="#89D5C5" Clicked="Dislike"/>
 
+            <Label Text="{Binding Item.likes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
+            <Label />
+            
+            <Button Text="Disike" FontSize="15" BackgroundColor="#89D5C5" Clicked="Dislike" />
+
+            <Label Text="{Binding Item.dislikes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
+            <Label />
  
 
         </StackLayout>

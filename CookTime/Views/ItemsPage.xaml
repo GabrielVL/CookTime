@@ -22,21 +22,32 @@
                 </d:CollectionView.ItemsSource>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="20">
                             <Label Text="{Binding Text}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                               FontSize="25" 
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#89D5C5"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center" />
                             <Label Text="{Binding Description}" 
                                 d:Text="Item descripton"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                               FontSize="15"
+                               HorizontalOptions="Center" />
                             <Image HeightRequest="200" 
                                    WidthRequest="200" 
                                    Source="{Binding foto}"></Image>
-                            <StackLayout.GestureRecognizers>
+
+                            <Label 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="15"
+                                HorizontalOptions="Center"/>
+                                <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
@@ -54,8 +65,9 @@
                      HeightRequest="70"
                      CornerRadius="35"
                      Padding="0"
-                     Margin="270,520,20,22"
-                     Clicked="Buscar"/>
+                     Margin="300,590,20,22"
+                     Clicked="Buscar"
+                     BackgroundColor="#89D5C5"/>
         <Button Grid.Row="0"
                      x:Name="Add"
                      ImageSource = "https://data.bloggif.com/distant/user/store/9/5/7/e/2708c47474088bed401318080c7ee759.png"        
@@ -63,8 +75,9 @@
                      HeightRequest="70"
                      CornerRadius="35"
                      Padding="0"
-                     Margin="270,440,20,22"
-                     Clicked="AddItem_Clicked"/>
+                     Margin="300,510,20,22"
+                     Clicked="AddItem_Clicked"
+                     BackgroundColor="#89D5C5"/>
     </AbsoluteLayout>
 </ContentPage>
     
