@@ -24,7 +24,7 @@ namespace CookTime.Views
             InitializeComponent();
             User = new User
             {
-                nombre = "Nombre del usuario",
+                nombre = "nombre del usuario",
                 apellido1 = "Primer apellido",
                 apellido2 = "Segundo apellido",
                 correo = "Corrreo Electrónico",
@@ -43,8 +43,8 @@ namespace CookTime.Views
             
             JsonObject Usuario = new JsonObject ();
             Usuario.Add("nombre", Nombre.Text);
-            Usuario.Add("apellido1",PrimerApellido.Text);
-            Usuario.Add("apellido2", SegundoApellido.Text);
+            Usuario.Add("Desc",PrimerApellido.Text);
+            Usuario.Add("Foto", SegundoApellido.Text);
             Usuario.Add("edad", Edad.Text);
             Usuario.Add("contrasena",Contrasena.Text);
             Usuario.Add("correo",Correo.Text);
@@ -65,7 +65,7 @@ namespace CookTime.Views
 
             MyIp myIps = new MyIp();
 
-            var response = await client.PostAsync("http://"+myIps.returnIP()+":8080/CookTime_Web_exploded/users", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_war_exploded/users", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
             
         } 
 

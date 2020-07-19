@@ -20,7 +20,7 @@ namespace CookTime.Views
             InitializeComponent();
             Company = new Company
             {
-                nombre = "Nombre de la compañia",
+                nombre = "nombre de la compañia",
                 horario = "Horario",
                 contacto = "Medio para consultar",
 
@@ -47,7 +47,7 @@ namespace CookTime.Views
 
             MyIp myIps = new MyIp();
 
-            var response = await client.PostAsync("http://" + myIps.returnIP() + "/CookTime_Web_exploded/companies", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync("http://" + myIps.returnIP() + "/CookTime_war_exploded/companies", new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
 
         }
 

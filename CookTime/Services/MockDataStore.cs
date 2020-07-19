@@ -28,7 +28,7 @@ namespace CookTime.Services
         public async void Peticion()
         {
             MyIp myIps = new MyIp();
-            String url = "http://"+myIps.returnIP()+"/CookTime_Web_exploded/recipes";
+            String url = "http://"+myIps.returnIP()+"/CookTime_war_exploded/recipes";
 
 
             WebClient nombre = new WebClient();
@@ -51,7 +51,6 @@ namespace CookTime.Services
                     
                 }
             }
-
 
         }
         public async Task<bool> AddItemAsync(Item item)

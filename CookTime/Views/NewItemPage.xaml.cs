@@ -23,7 +23,7 @@ namespace CookTime.Views
             Receta = new Item
             {
                 Id = "Id",
-                Text = "Nombre",
+                Text = "nombre",
                 autor = "Autor",
                 Description = "Tipo",
                 tiempo = "Tiempo",
@@ -70,8 +70,8 @@ namespace CookTime.Views
             HttpClient client = new HttpClient();
 
             MyIp myIps = new MyIp();
-            String param = "?Nombre=A&Id=3";
-            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_Web_exploded/recipes" + param, new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            String param = "?nombre=A&Id=3";
+            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_war_exploded/recipes" + param, new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
             
         } 
 

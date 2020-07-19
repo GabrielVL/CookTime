@@ -26,7 +26,7 @@ namespace CookTime.Views
         public async void Peticion()
         {
             MyIp myIps = new MyIp();
-            String url = "http://"+myIps.returnIP()+"/CookTime_Web_exploded/users";
+            String url = "http://"+myIps.returnIP()+"/CookTime_war_exploded/users";
 
 
             WebClient nombre = new WebClient();
