@@ -10,31 +10,41 @@
              x:Name="BrowseItemsPage">
     <ScrollView>
     <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-        <Button Text="Añadir Receta" Clicked="enviarFormulario" />
+        <Button Text="Añadir Receta" Clicked="enviarFormulario" HorizontalOptions="FillAndExpand" BackgroundColor="#89D5C5" TextColor="White"/>
 
-        <Label Text="Id" FontSize="Medium" />
+        
         <Entry x:Name="xd"  FontSize="Small" ></Entry>
-        <Label Text="Nombre" FontSize="Medium" />
+        <Label Text="Id" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        
         <Entry x:Name="Nombre"    FontSize="Small" />
-        <Label Text="Autor" FontSize="Medium" />
+        <Label Text="Nombre" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Autor" FontSize="Small" />
-        <Label Text="Tipo" FontSize="Medium" />
+        <Label Text="Autor" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Tipo"  FontSize="Small" />
-        <Label Text="Tiempo" FontSize="Medium" />
+        <Label Text="Tipo" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        
         <Entry x:Name="Tiempo"  FontSize="Small" />
-        <Label Text="Dieta" FontSize="Medium" />
+        <Label Text="Tiempo" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Dieta"  FontSize="Small" />
-        <Label Text="Instrucciones" FontSize="Medium" />
+        <Label Text="Dieta" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Instrucciones"   FontSize="Small" />
-        <Label Text="Precio" FontSize="Medium" />
+        <Label Text="Instrucciones" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Precio"   FontSize="Small" />
-        <Label Text="Porciones" FontSize="Medium" />
+        <Label Text="Precio" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Porciones"   FontSize="Small" />
-        <Label Text="Dificultad" FontSize="Medium" />
+        <Label Text="Porciones" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Dificultad"   FontSize="Small" />
-        <Label Text="Foto" FontSize="Medium" />
+        <Label Text="Dificultad" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        
         <Entry x:Name="Foto"   FontSize="Small" />
-
+        <Label Text="Foto" FontSize="Medium" HorizontalTextAlignment="Center"/>
     </StackLayout>
     </ScrollView>
 

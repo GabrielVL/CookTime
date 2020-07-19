@@ -38,6 +38,19 @@ namespace CookTime.Views
             await Navigation.PushModalAsync(new NavigationPage(new Administrar()));
         }
 
+        async void Chef(object sender, EventArgs e)
+        {
+           
+            MyIp myIps = new MyIp();
+            String url = "http://" + myIps.returnIP() + "/CookTime_Web_exploded/users?Id="+config.getPerfil()["id"]+"&Target="+ config.getPerfil()["chef"] + "&Value=1";
+            
+            WebRequest request = WebRequest.Create(url);
+            request.Method = "PUT";
+
+            chef.Text = request.GetResponse().ToString();
+        }
+        
+
         public void GetProfile(String id)
         {
 
@@ -50,6 +63,7 @@ namespace CookTime.Views
             Foto.Source = new UriImageSource { CachingEnabled = false, Uri = new Uri(config.getPerfilOficial()["Foto"]) };
 
             correo.Text = config.getPerfilOficial()["correo"];
+
 
 
         }
