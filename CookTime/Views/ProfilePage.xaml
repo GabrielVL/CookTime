@@ -24,10 +24,9 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="45" />
-
-
-
         </Grid.RowDefinitions>
+        
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -63,44 +62,34 @@
 
 
         <Button 
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
-            Grid.Row="3"
-            Text="Administrar Perfil"
-            TextColor="White"
-            BackgroundColor="#89D5C5"/>
-
-        <Button 
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Grid.Row="6"
-            Text="Seguidores"
-            Clicked="Seguidores"
-            TextColor="White"
-            BackgroundColor="#89D5C5"/>
-
-
-        <Button 
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
-            Grid.Row="6"
-            Text="Seguidos"
-            TextColor="White"
-            BackgroundColor="#89D5C5"/>
+            Grid.Row="4"
+            Text="Administrar Perfil"
+            Clicked="Administrar"/>
 
         <Button 
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            Grid.Row="8"
+            Grid.Row="6"
             Text="MyMenu"
             Clicked="MyMenu"
+            TextColor="White"
+            BackgroundColor="#89D5C5"/>
+        
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="8"
+            Text="Mapa"
+            Clicked="NewMap"
             TextColor="White"
             BackgroundColor="#89D5C5"/>
 
         <Button 
             x:Name="chef" 
             Grid.Column="1"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="2" 
             Grid.Row="10"
             Text="Convertirse en Chef"
             Clicked="Chef"

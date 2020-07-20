@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CookTime.Views.Administrar">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+
+        <Label Text="Administración perfil"
+               Grid.Column="0"
+               Grid.ColumnSpan="5"
+               Grid.Row="1"
+               HorizontalOptions="Center"
+               FontSize="30"
+               TextColor="#89D5C5"/>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="3"
+            Text="Cambiar nombre de usuario"
+            Clicked="ChangeName"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="5"
+            Text="Cambiar contraseña"
+            Clicked="ChangePass"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
+        
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="7"
+            Text="Cambiar imagen de perfil"
+            Clicked="ChangeImage"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="9"
+            Text="Crear Empresa"
+            Clicked="NewEmpresa"
+            BackgroundColor="#89D5C5"
+            TextColor="White"/>
+
+    </Grid>
+
+</ContentPage>

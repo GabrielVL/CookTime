@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CookTime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Seguidores : ContentPage
+    public partial class ChangeImage : ContentPage
     {
-        public Seguidores()
+        public ChangeImage()
         {
             InitializeComponent();
         }
