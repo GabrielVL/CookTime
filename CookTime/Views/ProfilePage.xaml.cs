@@ -6,23 +6,48 @@ using Xamarin.Forms.Xaml;
 using System.Json;
 using System.Net;
 using CookTime.Services;
+using CookTime.Models;
+
 namespace CookTime.Views
 {
     public partial class ProfilePage : ContentPage
     {
-        JsonArray pubCont = new JsonArray();
+        JsonArray MyMenuI = new JsonArray();
+        JsonArray readyrecipe = new JsonArray();
+        public IList<Item> recetas { get; private set; }
         public ProfilePage()
         {
             InitializeComponent();
             UserInfo();
-            
-            
 
+            recetas = new List<Item>();         
+            CargarMyMenu();
+            
+        }
+        public async void Peticion()
+        {
+            MyIp myIps = new MyIp();
+            
+            WebClient nombre = new WebClient();
+
+            MyMenuI = (JsonArray)config.getPerfilOficial()["MyMenu"];
+            foreach (object i in MyMenuI)
+            {
+                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?ID="+i.ToString();
+                readyrecipe.Add((JsonObject)JsonObject.Parse(nombre.DownloadString(url)));
+            }
+            
 
         }
-        async void MyMenu(object sender, EventArgs e)
+        async void CargarMyMenu()
         {
-            await Navigation.PushModalAsync(new NavigationPage(new MyMenu()));
+            Peticion();
+
+            for (int i = 0; i < readyrecipe.Count; i++)
+            {
+                recetas.Add(new Item { Description = readyrecipe[i]["tipo"].ToString(), Text = readyrecipe[i]["nombre"].ToString(), foto = readyrecipe[i]["foto"] });
+            }
+            BindingContext = this;
         }
 
         async void About_Clicked(object sender, EventArgs e)
@@ -68,4 +93,4 @@ namespace CookTime.Views
         }
         
     }
-    }
+}

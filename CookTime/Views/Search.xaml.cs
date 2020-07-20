@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using System.Json;
 using System.Net;
 using System.Linq.Expressions;
+using CookTime.ViewModels;
 
 namespace CookTime.Views
 {
@@ -22,6 +23,12 @@ namespace CookTime.Views
         {
             InitializeComponent();
             Resultado = new List<ItemBuscado>();
+        }
+        async void OnItemSelected(ItemBuscado sender, EventArgs args)
+        {
+            //var layout = (BindableObject)sender;
+            //var obj = (ItemBuscado)layout.BindingContext;
+            await Navigation.PushAsync(new ResultDetailPage(new ResultDetail(sender)));
         }
         public async void Peticion()
         {
@@ -38,11 +45,7 @@ namespace CookTime.Views
             Peticion();
                 for (int i = 0; i < 5; i++)
                 {
-                    try
-                    {
-                        Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"] });
-                    }
-                    catch {}
+                Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"]});
                 }
                 for (int i=0; i<5; i++)
                 {
@@ -55,15 +58,6 @@ namespace CookTime.Views
 
 
             BindingContext = this;
-        }
-        void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            ItemBuscado selectedItem = e.SelectedItem as ItemBuscado;
-        }
-
-        void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            ItemBuscado tappedItem = e.Item as ItemBuscado;
         }
     }
 }

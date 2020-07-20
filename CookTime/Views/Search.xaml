@@ -16,34 +16,33 @@
             <StackLayout Margin="20,35,20,20">
                 <ListView ItemsSource="{Binding Resultado}"
                             HasUnevenRows="true"
-                            ItemSelected="OnListViewItemSelected"
-                            ItemTapped="OnListViewItemTapped">
+                            ItemSelected="OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
-                          <RowDefinition Height="*" />
-                          </Grid.RowDefinitions>
-                          <Grid.ColumnDefinitions>
-                          <ColumnDefinition Width="Auto" />
-                          <ColumnDefinition Width="*" />
-                          </Grid.ColumnDefinitions>
-                          <Image Grid.RowSpan="2"
-                           Source="{Binding Foto}"
-                           Aspect="AspectFill"
-                           HeightRequest="60"
-                           WidthRequest="60" />
-                          <Label Grid.Column="1"
-                           Text="{Binding nombre}"
-                           FontAttributes="Bold" />
-                          <Label Grid.Row="1"
-                           Grid.Column="1"
-                           Text="{Binding Desc}"
-                           VerticalOptions="End" />
-                          </Grid>
-                         </ViewCell>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="2"
+                                        Source="{Binding Foto}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        WidthRequest="60" />
+                                    <Label Grid.Column="1"
+                                        Text="{Binding nombre}"
+                                        FontAttributes="Bold" />
+                                    <Label Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Desc}"
+                                        VerticalOptions="End" />
+                                </Grid>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
