@@ -9,26 +9,33 @@
              Title="{Binding Title}">
     <ScrollView>
     <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-            <Button Text="Registrarse" Clicked="enviarFormulario" />
+            <Button Text="Registrarse" Clicked="enviarFormulario" HorizontalOptions="FillAndExpand" BackgroundColor="#89D5C5" TextColor="White" />
 
 
-
-        <Label Text="Nombre" FontSize="Medium" />
+        <Label/>
+        
         <Entry x:Name="Nombre"  FontSize="Small" ></Entry>
-        <Label Text="Primer Apellido" FontSize="Medium" />
+        <Label Text="Nombre" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        
         <Entry x:Name="PrimerApellido"    FontSize="Small" />
-        <Label Text="Segundo Apellido" FontSize="Medium" />
+        <Label Text="Primer Apellido" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="SegundoApellido" FontSize="Small" />
-        <Label Text="Correo Electrónico" FontSize="Medium" />
+        <Label Text="Segundo Apellido" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Correo"  FontSize="Small" />
-        <Label Text="Edad" FontSize="Medium" />
+        <Label Text="Correo Electrónico" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
         <Entry x:Name="Edad"  FontSize="Small" />
-        <Label Text="Contraseña" FontSize="Medium" />
+        <Label Text="Edad" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        
         <Entry x:Name="Contrasena"   FontSize="Small" />
-        <Label x:Name="prueba" Text="pruebaxd" FontSize="Medium" />
+        <Label Text="Contraseña" FontSize="Medium" HorizontalTextAlignment="Center" />
+        
+        
 
 
-    </StackLayout>
+        </StackLayout>
     </ScrollView>
 
 

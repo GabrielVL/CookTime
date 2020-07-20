@@ -52,5 +52,14 @@ namespace CookTime.Services
             return perfilOficial;
         }
 
+        public static void cambiarNombre(String newNombre)
+        {
+
+            perfilOficial.Remove("nombre");
+            perfilOficial.Add("nombre", newNombre);
+            
+
+        }
+
     } 
 }
