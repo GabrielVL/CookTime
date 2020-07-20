@@ -41,7 +41,7 @@
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
         
-        </DataTemplate>
+                    </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
