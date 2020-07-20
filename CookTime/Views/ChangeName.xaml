@@ -73,7 +73,9 @@
                Grid.ColumnSpan="2"
                Grid.Row="7"/>
             
-            <Button Text="Cambiar Nombre"
+            <Button x:Name="cambiarNombre"
+               Clicked="cambiar"
+               Text="Cambiar Nombre"
                Grid.Column="1"
                Grid.ColumnSpan="2"
                Grid.Row="10"
