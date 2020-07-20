@@ -9,34 +9,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="About" Clicked="About_Clicked" />
     </ContentPage.ToolbarItems>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="45" />
-        </Grid.RowDefinitions>
-        
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        
-        <Label x:Name="username"
-               Grid.Column="2"
-               Grid.ColumnSpan="2"
-               Grid.Row="1"
+    
+    
     <ScrollView>
         <StackLayout>
             <Label x:Name="username"
@@ -45,35 +19,35 @@
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
-        <Label x:Name="correo"
+            <Label x:Name="correo"
                Grid.Column="2"
                FontSize="20"
                Text="Correo"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
-        <Image Source ="{Binding Source}"
+            <Image Source ="{Binding Source}"
                x:Name="Foto"
                ></Image>
 
 
-        <Button 
+            <Button 
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="4"
             Text="Administrar Perfil"
             Clicked="Administrar"/>
 
-        <Button 
+            <Button 
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.Row="6"
             Text="MyMenu"
-            Clicked="MyMenu"
+            
             TextColor="White"
             BackgroundColor="#89D5C5"/>
-        
-        <Button 
+
+            <Button 
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.Row="8"
@@ -82,7 +56,7 @@
             TextColor="White"
             BackgroundColor="#89D5C5"/>
 
-        <Button 
+            <Button 
             x:Name="chef" 
             Grid.Column="1"
             Grid.ColumnSpan="2" 
@@ -91,44 +65,44 @@
             Clicked="Chef"
             TextColor="White"
             BackgroundColor="#89D5C5"/>
-        <StackLayout>
-            <ListView ItemsSource="{Binding recetas}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.RowSpan="2"
+            <StackLayout>
+                <ListView ItemsSource="{Binding recetas}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="2"
                                         Source="{Binding foto}"
                                         Aspect="AspectFill"
                                         HeightRequest="60"
                                         WidthRequest="60" />
-                                <Label Grid.Column="1"
+                                    <Label Grid.Column="1"
                                         Text="{Binding Text}"
                                         FontAttributes="Bold" />
-                                <Label Grid.Row="1"
+                                    <Label Grid.Row="1"
                                         Grid.Column="1"
                                         Text="{Binding Description}"
                                         VerticalOptions="End" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
-       </StackLayout>
 
 
     </ScrollView>
 
 
-    </Grid>
+
 
 </ContentPage>
