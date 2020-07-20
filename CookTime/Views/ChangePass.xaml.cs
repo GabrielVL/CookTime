@@ -21,12 +21,13 @@ namespace CookTime.Views
             if (Password.Text == Password2.Text)
             {
                 MyIp myIps = new MyIp();
-                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=contrasena &Value=" + Password.Text;
+                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"])+"&Target=contrasena&Value="+Password.Text;
                 WebRequest request = WebRequest.Create(url);
                 request.Method = "PUT";
                 request.GetResponse();
-                await Navigation.PopModalAsync();
-                DisplayAlert("Información válida", "La información ingresada es válida", "OK");
+   
+                DisplayAlert("Información válida", "El cambio se ha realizado con éxito", "OK");
+ 
                 await Navigation.PopModalAsync();
             }
 
@@ -35,6 +36,6 @@ namespace CookTime.Views
             }
         
         }
-
+            
     }
 }
