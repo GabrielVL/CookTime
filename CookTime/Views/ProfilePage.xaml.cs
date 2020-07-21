@@ -52,7 +52,8 @@ namespace CookTime.Views
 
         async void About_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
+            //await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new ItemsPage()));
         }
         async void NewMap(object sender, EventArgs e)
         {

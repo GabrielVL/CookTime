@@ -26,8 +26,8 @@ namespace CookTime.Views
             //especificar con qué lo quiero cambiar
             MyIp myIps = new MyIp();
             String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=nombre &Value="+Nombre.Text;
-            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=apellido1 &Value=" + Apellido1.Text;
-            String url3 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=apellido2 &Value=" + Apellido2.Text;
+            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=apellido1 &Value="+Apellido1.Text;
+            String url3 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Id=" + ((int)config.getPerfil()["id"]) + "&Target=apellido2 &Value="+Apellido2.Text;
             WebRequest request = WebRequest.Create(url);
             WebRequest request2 = WebRequest.Create(url2);
             WebRequest request3 = WebRequest.Create(url3);
@@ -40,6 +40,8 @@ namespace CookTime.Views
             request2.GetResponse();
             request3.GetResponse();
 
+
+            DisplayAlert("Información válida", "El cambio se ha realizado con éxito", "OK");
 
             await Navigation.PopModalAsync();
         }
