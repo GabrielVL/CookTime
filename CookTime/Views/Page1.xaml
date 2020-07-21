@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.Page1">
     <Grid>
-        <map:Map x:Name="MyMap"  MapType ="Street">
+        <map:Map x:Name="MyMap"  MapType ="Satellite">
             <map:Map.ItemTemplate>
                 <DataTemplate>
                     <map:Pin Position="{Binding Position}"

@@ -14,7 +14,41 @@
             <Button Text="Buscar" Clicked="Busqueda" />
 
             <StackLayout Margin="20,35,20,20">
-                <ListView ItemsSource="{Binding Resultado}"
+                <ListView ItemsSource="{Binding Resultadousuarios}"
+                            HasUnevenRows="true"
+                            ItemTapped="OnItemSelected2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="2"
+                                        Source="{Binding Foto}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        WidthRequest="60" />
+                                    <Label Grid.Column="1"
+                                        Text="{Binding nombre}"
+                                        FontAttributes="Bold" />
+                                    <Label Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Desc}"
+                                        VerticalOptions="End" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Margin="20,35,20,20">
+                <ListView ItemsSource="{Binding Resultadorecetas}"
                             HasUnevenRows="true"
                             ItemTapped="OnItemSelected">
                     <ListView.ItemTemplate>

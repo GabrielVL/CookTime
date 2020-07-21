@@ -17,15 +17,22 @@ namespace CookTime.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Search : ContentPage
     {
-        public IList<ItemBuscado> Resultado { get; private set; }
+        public IList<ItemBuscado> Resultadousuarios { get; private set; }
+        public IList<ItemBuscado> Resultadorecetas { get; private set; }
         JsonArray pubCont = new JsonArray();
         JsonArray pubCont2 = new JsonArray();
         public Search()
         {
             InitializeComponent();
-            Resultado = new List<ItemBuscado>();
+            Resultadousuarios = new List<ItemBuscado>();
+            Resultadorecetas = new List<ItemBuscado>();
         }
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
+        {
+            var mydetails = e.Item as ItemBuscado;
+            await Navigation.PushAsync(new ItemDetailPage(mydetails.nombre, mydetails.Desc, mydetails.Foto, mydetails.tipo, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes));
+        }
+        async void OnItemSelected2(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
             await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.Desc, mydetails.Foto));
@@ -39,8 +46,6 @@ namespace CookTime.Views
             WebClient nombre = new WebClient();
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
             pubCont2 = (JsonArray)JsonArray.Parse(nombre.DownloadString(url2));
-            Console.WriteLine(pubCont.ToString());
-            Console.WriteLine(pubCont2.ToString());
         }
         async void Busqueda(object sender, EventArgs e)
         {
@@ -49,17 +54,33 @@ namespace CookTime.Views
                 {
                 try
                 {
-                    Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"] });
+                    Resultadousuarios.Add(new ItemBuscado 
+                    { 
+                        Desc = pubCont[i]["apellido1"].ToString(), 
+                        nombre = pubCont[i]["nombre"].ToString(), 
+                        Foto = pubCont[i]["perfil"]["Foto"] 
+                    });
+
+                    Resultadorecetas.Add(new ItemBuscado
+                    {
+                        Desc = pubCont2[i]["autor"].ToString(),
+                        nombre = pubCont2[i]["nombre"].ToString(),
+
+                        Foto = pubCont2[i]["foto"],
+                        dieta = pubCont2[i]["dieta"],
+                        dificultad = pubCont2[i]["dificultad"],
+                        dislikes = pubCont2[i]["dislikes"],
+
+                        instrucciones = pubCont2[i]["instrucciones"],
+                        likes = pubCont2[i]["likes"],
+                        porciones = pubCont2[i]["porciones"],
+                        precio = pubCont2[i]["precio"],
+
+                        tiempo = pubCont2[i]["tiempo"],
+                        tipo = pubCont2[i]["tipo"]
+                    });
                 }
                 catch { }
-                }
-                for (int i=0; i<5; i++)
-                {
-                    try
-                    {
-                        Resultado.Add(new ItemBuscado { Desc = pubCont2[i]["autor"].ToString(), nombre = pubCont2[i]["nombre"].ToString(), Foto = pubCont2[i]["foto"] });
-                    }
-                    catch { }
                 }
 
 
