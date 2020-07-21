@@ -66,7 +66,9 @@
             TextColor="White"
             BackgroundColor="#89D5C5"/>
             <StackLayout>
-                <ListView ItemsSource="{Binding recetas}">
+                <ListView ItemsSource="{Binding recetas}"
+                            HasUnevenRows="true"
+                            ItemTapped="OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

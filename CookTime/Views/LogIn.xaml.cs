@@ -59,7 +59,7 @@ namespace CookTime.Views
             }
             catch (Exception e)
             {
-                  DisplayAlert("Error al iniciar sesión", "El usuario no se encuentra en la base de datos", "Reintentar");
+                  DisplayAlert("Error al iniciar sesión", "No se ha podido completar la accion", "Reintentar");
                 return false;
             }
         }

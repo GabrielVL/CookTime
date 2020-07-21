@@ -10,6 +10,7 @@ using System.Json;
 using System.Net;
 using System.Linq.Expressions;
 using CookTime.ViewModels;
+using CookTime.Models;
 
 namespace CookTime.Views
 {
@@ -24,28 +25,33 @@ namespace CookTime.Views
             InitializeComponent();
             Resultado = new List<ItemBuscado>();
         }
-        async void OnItemSelected(ItemBuscado sender, EventArgs args)
+        async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
-            //var layout = (BindableObject)sender;
-            //var obj = (ItemBuscado)layout.BindingContext;
-            await Navigation.PushAsync(new ResultDetailPage(new ResultDetail(sender)));
+            var mydetails = e.Item as ItemBuscado;
+            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.Desc, mydetails.Foto));
         }
         public async void Peticion()
         {
             MyIp myIps = new MyIp();
-            String url = "http://" + myIps.returnIP() +"/CookTime_war_exploded/users?nombre="+Nombre.Text;
-            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Nombre=" + Nombre.Text;
+            String url = "http://" + myIps.returnIP() +"/CookTime_war_exploded/users?Nombre="+Nombre.Text;
+            String url2 = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Nombre=" +Nombre.Text;
 
             WebClient nombre = new WebClient();
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
             pubCont2 = (JsonArray)JsonArray.Parse(nombre.DownloadString(url2));
+            Console.WriteLine(pubCont.ToString());
+            Console.WriteLine(pubCont2.ToString());
         }
         async void Busqueda(object sender, EventArgs e)
         {
             Peticion();
                 for (int i = 0; i < 5; i++)
                 {
-                Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"]});
+                try
+                {
+                    Resultado.Add(new ItemBuscado { Desc = pubCont[i]["apellido1"].ToString(), nombre = pubCont[i]["nombre"].ToString(), Foto = pubCont[i]["perfil"]["Foto"] });
+                }
+                catch { }
                 }
                 for (int i=0; i<5; i++)
                 {

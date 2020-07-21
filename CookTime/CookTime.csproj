@@ -21,9 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ResultDetailPage.xaml.cs">
-      <DependentUpon>ResultDetailPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\MainPageI.xaml.cs">
       <DependentUpon>MainPageI.xaml</DependentUpon>
     </Compile>
@@ -43,6 +40,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ChangePass.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ItemBuscadoViewDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LogIn.xaml">

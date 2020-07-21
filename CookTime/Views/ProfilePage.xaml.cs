@@ -87,10 +87,12 @@ namespace CookTime.Views
             Foto.Source = new UriImageSource { CachingEnabled = false, Uri = new Uri(config.getPerfilOficial()["Foto"]) };
 
             correo.Text = config.getPerfilOficial()["correo"];
-
-
-
         }
-        
+        async void OnItemSelected(object sender, ItemTappedEventArgs e)
+        {
+            var mydetails = e.Item as Item;
+            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.Text, mydetails.Description, mydetails.foto));
+        }
+
     }
 }

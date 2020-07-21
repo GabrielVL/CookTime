@@ -16,7 +16,7 @@
             <StackLayout Margin="20,35,20,20">
                 <ListView ItemsSource="{Binding Resultado}"
                             HasUnevenRows="true"
-                            ItemSelected="OnItemSelected">
+                            ItemTapped="OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
