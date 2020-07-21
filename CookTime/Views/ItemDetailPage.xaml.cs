@@ -24,6 +24,24 @@ namespace CookTime.Views
 
             BindingContext = this.viewModel = viewModel;
         }
+        public ItemDetailPage(string nombre, string desc, string foto, string tipo, string tiempo, string instrucciones, string precio, string porciones, string dificultad, string dieta, string likes, string dislikes)
+        {
+            InitializeComponent();
+            Item pedrito = new Item();
+            pedrito.Text = nombre;
+            pedrito.autor = desc;
+            pedrito.dieta = dieta;
+            pedrito.foto = foto;
+            pedrito.tiempo = tiempo;
+            pedrito.instrucciones = instrucciones;
+            pedrito.precio = precio;
+            pedrito.porciones = porciones;
+            pedrito.dificultad = dificultad;
+            pedrito.likes = likes;
+            pedrito.dislikes = dislikes;
+
+            BindingContext = this.viewModel = new ItemDetailViewModel(pedrito);
+        }
 
         public ItemDetailPage()
         {

@@ -18,50 +18,53 @@ namespace CookTime.Views
 
         String id;
         JsonObject perfil;
-        JsonArray pubCont = new JsonArray();
+        JsonObject usuario = new JsonObject();
         public LogIn()
         {
             InitializeComponent();
         }
-        public async void Peticion()
-        {
-            MyIp myIps = new MyIp();
-            String url = "http://"+myIps.returnIP()+"/CookTime_war_exploded/users";
 
-
-            WebClient nombre = new WebClient();
-            pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
-        }
-        public Boolean Comparar(String correo, String contraseña)
+        public  Boolean Comparar(String correo, String contrasena)
         {
             Boolean answer = true;
-            for (int i = 0; i < pubCont.Count; i++)
-            {
-                answer = false;
-                try
-                {
-                    //Result.Text = nombre;
-                    if (correo.Equals(pubCont[i]["correo"]) && contraseña.Equals(pubCont[i]["contrasena"]))
-                    {
-                        id = pubCont[i]["id"];
-                        config.setMyId(id);
-                        config.setPerfil((JsonObject)pubCont[i]);
-                        
 
-                        answer = true;
-                        return answer;
-                    }
-                }
-                catch (Exception e)
+            MyIp myIps = new MyIp();
+            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?Verificar=1&Contrasena="+contrasena+"&Correo="+correo;
+            //saber si calza la contraseña con el correo
+
+            //recuperar JSON del mae
+            //establecer ID
+            
+
+            WebClient nombre = new WebClient();
+
+            //1
+            String x = nombre.DownloadString(url);
+            try
+            {
+                if (x.Equals("false"))
                 {
-                    DisplayAlert("Error al iniciar sesión", "No se pudo completar la accion", "Reintentar");
+                    DisplayAlert("Error al iniciar sesión", "El usuario no se encuentra en la base de datos", "Reintentar");
+
+                    return false;
+                }
+                else
+                {//Adrian estuvo aqui 
+                    usuario = (JsonObject)JsonObject.Parse(x);
+                    id = usuario["id"];
+                    config.setMyId(id);
+                    config.setPerfil(usuario);
+                    return true;
                 }
             }
-            return answer;
+            catch (Exception e)
+            {
+                  DisplayAlert("Error al iniciar sesión", "No se ha podido completar la accion", "Reintentar");
+                return false;
+            }
         }
         async void MainPage(object sender, EventArgs e)
         {
-            Peticion();
             if (Comparar(Correo.Text.ToString(), Contraseña.Text.ToString()))
             {
                 await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
