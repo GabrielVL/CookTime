@@ -25,6 +25,7 @@ namespace CookTime.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::CookTime.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::CookTime.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::CookTime.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::CookTime.Droid.Resource.Attribute.font;
@@ -11245,13 +11246,16 @@ namespace CookTime.Droid
 			public const int notify_panel_notification_icon_bg = 2131165320;
 			
 			// aapt resource value: 0x7F070089
-			public const int tooltip_frame_dark = 2131165321;
+			public const int plugin_lc_smallicon = 2131165321;
 			
 			// aapt resource value: 0x7F07008A
-			public const int tooltip_frame_light = 2131165322;
+			public const int tooltip_frame_dark = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
-			public const int xamarin_logo = 2131165323;
+			public const int tooltip_frame_light = 2131165323;
+			
+			// aapt resource value: 0x7F07008C
+			public const int xamarin_logo = 2131165324;
 			
 			static Drawable()
 			{
