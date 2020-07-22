@@ -31,9 +31,9 @@ namespace CookTime.Views
             WebClient nombre = new WebClient();
 
             MyMenuI = (JsonArray)config.getPerfilOficial()["MyMenu"];
-            foreach (object i in MyMenuI)
+            foreach (string i in MyMenuI)
             {
-                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?ID="+i.ToString();
+                String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?ID="+ int.Parse(i);
                 readyrecipe.Add((JsonObject)JsonObject.Parse(nombre.DownloadString(url)));
             }
             
@@ -45,7 +45,7 @@ namespace CookTime.Views
 
             for (int i = 0; i < readyrecipe.Count; i++)
             {
-                recetas.Add(new Item { Description = readyrecipe[i]["tipo"].ToString(), Text = readyrecipe[i]["nombre"].ToString(), foto = readyrecipe[i]["foto"] });
+                recetas.Add(new Item { Description = readyrecipe[i]["tipo"], Text = readyrecipe[i]["nombre"], foto = readyrecipe[i]["foto"], autor = readyrecipe[i]["autor"], tiempo = readyrecipe[i]["tiempo"], instrucciones = readyrecipe[i]["instrucciones"], precio = readyrecipe[i]["precio"], porciones = readyrecipe[i]["porciones"], dificultad = readyrecipe[i]["dificultad"], dieta = readyrecipe[i]["dieta"], likes = readyrecipe[i]["likes"], dislikes = readyrecipe[i]["dislikes"] });
             }
             BindingContext = this;
         }
@@ -91,7 +91,7 @@ namespace CookTime.Views
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as Item;
-            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.Text, mydetails.Description, mydetails.foto));
+            await Navigation.PushAsync(new ItemDetailPage(mydetails.Text, mydetails.Description, mydetails.foto, mydetails.autor, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes));
         }
 
     }

@@ -23,7 +23,7 @@
 
             <Label />
             <Label Text="Dieta" FontSize="20" TextColor="#89D5C5"  />
-            <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="15" />
+            <Label Text="{Binding Item.dieta}" d:Text="Item description" FontSize="15" />
             <Label />
 
             <Label Text="Autor" FontSize="20" TextColor="#89D5C5"/>

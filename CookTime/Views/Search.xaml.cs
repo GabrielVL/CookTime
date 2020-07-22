@@ -56,23 +56,24 @@ namespace CookTime.Views
                 {
                     Resultadousuarios.Add(new ItemBuscado 
                     { 
-                        Desc = pubCont[i]["apellido1"].ToString(), 
-                        nombre = pubCont[i]["nombre"].ToString(), 
+                        Desc = pubCont[i]["apellido1"], 
+                        nombre = pubCont[i]["nombre"], 
                         Foto = pubCont[i]["perfil"]["Foto"] 
                     });
 
                     Resultadorecetas.Add(new ItemBuscado
                     {
-                        Desc = pubCont2[i]["autor"].ToString(),
-                        nombre = pubCont2[i]["nombre"].ToString(),
+                        Desc = pubCont2[i]["autor"],
+                        nombre = pubCont2[i]["nombre"],
 
                         Foto = pubCont2[i]["foto"],
                         dieta = pubCont2[i]["dieta"],
                         dificultad = pubCont2[i]["dificultad"],
-                        dislikes = pubCont2[i]["dislikes"],
+
 
                         instrucciones = pubCont2[i]["instrucciones"],
                         likes = pubCont2[i]["likes"],
+                        dislikes = pubCont2[i]["dislikes"],
                         porciones = pubCont2[i]["porciones"],
                         precio = pubCont2[i]["precio"],
 
