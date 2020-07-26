@@ -13,6 +13,7 @@ namespace CookTime.Services
     {
         readonly List<Item> items;
         JsonArray pubCont = new JsonArray();
+        JsonArray comments = new JsonArray();
         public MockDataStore()
         {
 
@@ -32,8 +33,6 @@ namespace CookTime.Services
 
 
             WebClient nombre = new WebClient();
-            //nombre.QueryString.Add("ID", "1");
-            //nombre.QueryString.Add("DATA", "nombre");
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
         }
 
@@ -43,8 +42,21 @@ namespace CookTime.Services
             {
                 try
                 {
-                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"], dieta = pubCont[i]["dieta"], foto = pubCont [i]["foto"], autor = pubCont[i]["autor"], tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"], precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"], likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"] });
-                    JsonObject actPub = new JsonObject();
+                    Item receta = new Item();
+                    comments = (JsonArray)pubCont[i]["comentarios"];
+                    foreach (JsonObject x in comments) {
+                        try
+                        {
+                            receta.comentarios.Add(((String)x["contenido"]));
+                        }
+                        catch { }
+                    }
+                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"],
+                        dieta = pubCont[i]["dieta"], foto = pubCont[i]["foto"], autor = pubCont[i]["autor"],
+                        tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"],
+                        precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"],
+                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta.comentarios});
+
                 }
                 catch (Exception e)
                 {

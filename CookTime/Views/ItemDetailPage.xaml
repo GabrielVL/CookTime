@@ -59,7 +59,9 @@
 
             <Label Text="{Binding Item.dislikes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
             <Label />
- 
+
+            <ListView x:Name="ListaEjemplo"/>
+
 
         </StackLayout>
 

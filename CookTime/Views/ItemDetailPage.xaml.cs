@@ -8,6 +8,7 @@ using CookTime.Models;
 using CookTime.ViewModels;
 using System.Threading.Tasks;
 using CookTime.Services;
+using System.Collections.Generic;
 
 namespace CookTime.Views
 {
@@ -17,14 +18,22 @@ namespace CookTime.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public IList<ComentarioItem> comments { get; private set; }
+        public IList<int> numeros { get; private set; }
+        public ItemDetailPage(ItemDetailViewModel viewModel, List<string> pepe)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            string[] mierda = new string[];
+
+            ListaEjemplo.ItemsSource = pepe;
+                    
+            BindingContext = this.viewModel = viewModel;            
         }
-        public ItemDetailPage(string nombre, string desc, string foto, string tipo, string tiempo, string instrucciones, string precio, string porciones, string dificultad, string dieta, string likes, string dislikes)
+        public ItemDetailPage(string nombre, string desc, 
+            string foto, string tipo, string tiempo, string instrucciones, 
+            string precio, string porciones, string dificultad, string dieta, 
+            string likes, string dislikes)
         {
             InitializeComponent();
             Item pedrito = new Item();

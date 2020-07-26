@@ -1,4 +1,6 @@
 ﻿    using System;
+using System.Collections.Generic;
+using System.Json;
 using Xamarin.Forms;
 
 namespace CookTime.Models
@@ -18,7 +20,7 @@ namespace CookTime.Models
         public string dieta { get; set; }
         public string likes { get; set; }
         public string dislikes { get; set; }
-
+        public List<string> comentarios { get; set; }
 
     }
 
