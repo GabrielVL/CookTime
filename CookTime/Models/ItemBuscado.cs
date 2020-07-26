@@ -20,6 +20,14 @@ namespace CookTime
         public string likes { get; set; }
         public string dislikes { get; set; }
 
+        public string correo { get; set; }
+        public string apellido { get; set; }
+        public string apellido2 { get; set; }
+        public string edad { get; set; }
+
+        public string chef { get; set; }
+
+
         public override string ToString()
         {
             return nombre;

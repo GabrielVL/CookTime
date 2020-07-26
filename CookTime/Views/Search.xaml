@@ -27,7 +27,9 @@
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.RowSpan="2"
                                         Source="{Binding Foto}"
@@ -37,10 +39,15 @@
                                     <Label Grid.Column="1"
                                         Text="{Binding nombre}"
                                         FontAttributes="Bold" />
-                                    <Label Grid.Row="1"
-                                        Grid.Column="1"
-                                        Text="{Binding Desc}"
-                                        VerticalOptions="End" />
+                                    <Label 
+                                        Grid.Column="2"
+                                        Text="{Binding apellido}"
+                                        FontAttributes="Bold"/>
+                                    <Label 
+                                        Grid.Column="2"
+                                        Text="{Binding apellido2}"
+                                        FontAttributes="Bold"/>
+
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

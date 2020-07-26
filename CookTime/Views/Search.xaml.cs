@@ -35,7 +35,7 @@ namespace CookTime.Views
         async void OnItemSelected2(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
-            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.Desc, mydetails.Foto));
+            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.apellido, mydetails.Foto, mydetails.apellido2, mydetails.correo, mydetails.edad, mydetails.chef));
         }
         public async void Peticion()
         {
@@ -56,9 +56,13 @@ namespace CookTime.Views
                 {
                     Resultadousuarios.Add(new ItemBuscado 
                     { 
-                        Desc = pubCont[i]["apellido1"], 
+                        apellido = pubCont[i]["apellido1"], 
                         nombre = pubCont[i]["nombre"], 
-                        Foto = pubCont[i]["perfil"]["Foto"] 
+                        Foto = pubCont[i]["perfil"]["Foto"],
+                        apellido2 = pubCont[i]["apellido2"],
+                        correo = pubCont[i]["perfil"]["correo"],
+                        edad = pubCont[i]["perfil"]["edad"],
+                        chef = pubCont[i]["chef"],
                     });
 
                     Resultadorecetas.Add(new ItemBuscado
