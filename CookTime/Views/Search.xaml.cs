@@ -26,6 +26,8 @@ namespace CookTime.Views
             InitializeComponent();
             Resultadousuarios = new List<ItemBuscado>();
             Resultadorecetas = new List<ItemBuscado>();
+
+            
         }
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
@@ -48,14 +50,18 @@ namespace CookTime.Views
             pubCont2 = (JsonArray)JsonArray.Parse(nombre.DownloadString(url2));
         }
         async void Busqueda(object sender, EventArgs e)
-        {
+        { 
+            
             Peticion();
                 for (int i = 0; i < 5; i++)
                 {
+                
                 try
                 {
+                    
                     Resultadousuarios.Add(new ItemBuscado 
                     { 
+                        
                         apellido = pubCont[i]["apellido1"], 
                         nombre = pubCont[i]["nombre"], 
                         Foto = pubCont[i]["perfil"]["Foto"],
@@ -63,7 +69,11 @@ namespace CookTime.Views
                         correo = pubCont[i]["perfil"]["correo"],
                         edad = pubCont[i]["perfil"]["edad"],
                         chef = pubCont[i]["chef"],
-                    });
+                        
+                        
+                    
+
+                });
 
                     Resultadorecetas.Add(new ItemBuscado
                     {

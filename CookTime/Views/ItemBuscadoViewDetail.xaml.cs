@@ -17,6 +17,7 @@ namespace CookTime.Views
             InitializeComponent();
             checkChef(Chef, Name, Apellido, Apellido2);
 
+
             correo.Text = Correo;
             edad.Text = "Edad:  " + Edad;  
 

@@ -32,5 +32,15 @@ namespace CookTime
         {
             return nombre;
         }
+
+        public string CheckChef() {
+            if (chef.Equals("2")) {
+                return "Chef";
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }

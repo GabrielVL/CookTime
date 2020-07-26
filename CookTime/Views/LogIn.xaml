@@ -61,12 +61,14 @@
                HorizontalOptions="Center"
                TextColor="White"/>
 
-        <Entry x:Name="Contraseña"  FontSize="Small"
+        <Entry x:Name="Contraseña"  FontSize="Large"
                Text="x"
                Grid.Column="2"
                Grid.ColumnSpan="3"
                Grid.Row="5"
-               TextColor="White"></Entry>
+               TextColor="White"
+               IsPassword="True"
+               ></Entry>
 
         <Button Text="Iniciar Sesión" Clicked="MainPage"
                Grid.Column="2"
