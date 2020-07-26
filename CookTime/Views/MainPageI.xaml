@@ -11,7 +11,7 @@
     
 
     <TabbedPage.Children>
-        <NavigationPage Title="Newsfeed">
+        <NavigationPage Title="Newsfeed" IconImageSource="Logo2.png">
             <x:Arguments>
                 <views:ItemsPage />
             </x:Arguments>

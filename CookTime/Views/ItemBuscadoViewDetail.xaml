@@ -6,13 +6,43 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ItemBuscadoViewDetail">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Resultado de la busqueda"/>
-            <Label Text="Nombre"/>
-            <Label x:Name="ItemName" HorizontalTextAlignment="Center"/>
-            <Label Text="Detalles"/>
-            <Label x:Name="Description"/>
-            <Image x:Name="Foto" HeightRequest="100" WidthRequest="100"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <Label x:Name="ItemName" HorizontalTextAlignment="Center"
+                   Grid.Column="0"
+               Grid.Row="1"
+               HorizontalOptions="Center"/>
+
+            <Label x:Name="Description"
+                   Grid.Column="1"
+               Grid.Row="1"
+               HorizontalOptions="Center"/>
+            <Image x:Name="Foto" HeightRequest="100" WidthRequest="100"
+                   Grid.Column="1"
+               Grid.Row="4"
+               HorizontalOptions="Center"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

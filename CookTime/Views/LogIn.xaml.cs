@@ -83,16 +83,7 @@ namespace CookTime.Views
 
         }
 
-
-        async void Bypass(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new MainPageI()));
-            
-        }
-
-
-        
-
+ 
     }
     
 }
