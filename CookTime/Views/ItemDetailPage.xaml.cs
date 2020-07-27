@@ -8,6 +8,8 @@ using CookTime.Models;
 using CookTime.ViewModels;
 using System.Threading.Tasks;
 using CookTime.Services;
+using System.Net;
+
 
 namespace CookTime.Views
 {
@@ -23,6 +25,8 @@ namespace CookTime.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+
+            
         }
         public ItemDetailPage(string nombre, string desc, string foto, string tipo, string tiempo, string instrucciones, string precio, string porciones, string dificultad, string dieta, string likes, string dislikes)
         {
@@ -40,6 +44,14 @@ namespace CookTime.Views
             pedrito.likes = likes;
             pedrito.dislikes = dislikes;
 
+            JsonArray autorReceta = new JsonArray();
+            MyIp myIps = new MyIp();
+            WebClient x = new WebClient();
+
+            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?ID=" + pedrito.autor;
+            autorReceta.Add((JsonObject)JsonObject.Parse(x.DownloadString(url)));
+
+            
             BindingContext = this.viewModel = new ItemDetailViewModel(pedrito);
         }
 
@@ -56,6 +68,11 @@ namespace CookTime.Views
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
+
+
+
+
+
 
         async void Like(object sender, EventArgs e) {
 
