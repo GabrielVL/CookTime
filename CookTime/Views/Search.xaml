@@ -9,14 +9,14 @@
              Title="{Binding Title}">
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-            <Label x:Name="MarcoAntonioDeLaLuzCastro" Text="Bienvenido a la barra de busqueda" FontSize="Medium" />
-            <Entry x:Name="Nombre"  FontSize="Small" ></Entry>
-            <Button Text="Buscar" Clicked="Busqueda" />
+            <Entry x:Name="Nombre"  FontSize="Small" Placeholder="Ingresar datos de búsqueda..." HorizontalTextAlignment="Center"></Entry>
+            <Button Text="Buscar" Clicked="Busqueda" TextColor="White" BackgroundColor="#89D5C5"/>
 
             <StackLayout Margin="20,35,20,20">
                 <ListView ItemsSource="{Binding Resultadousuarios}"
                             HasUnevenRows="true"
-                            ItemTapped="OnItemSelected2">
+                            ItemTapped="OnItemSelected2"
+                            >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -27,7 +27,9 @@
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.RowSpan="2"
                                         Source="{Binding Foto}"
@@ -37,10 +39,19 @@
                                     <Label Grid.Column="1"
                                         Text="{Binding nombre}"
                                         FontAttributes="Bold" />
-                                    <Label Grid.Row="1"
+                                    <Label 
+                                        Grid.Column="2"
+                                        Text="{Binding apellido}"
+                                        FontAttributes="Bold"/>
+                                    <Label 
+                                        Grid.Column="3"
+                                        Text="{Binding apellido2}"
+                                        FontAttributes="Bold"/>
+                                    <Label 
                                         Grid.Column="1"
-                                        Text="{Binding Desc}"
-                                        VerticalOptions="End" />
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="4"
+                                        Text="{Binding correo}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -56,7 +67,8 @@
                             <ViewCell>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
@@ -73,8 +85,13 @@
                                         FontAttributes="Bold" />
                                     <Label Grid.Row="1"
                                         Grid.Column="1"
-                                        Text="{Binding Desc}"
+                                        Text="{Binding tipo}"
                                         VerticalOptions="End" />
+                                    <Label Grid.Row="2"
+                                        Grid.Column="1"
+                                        Text="{Binding tiempo}"
+                                        VerticalOptions="End" />
+
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

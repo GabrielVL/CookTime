@@ -11,6 +11,7 @@ using CookTime.Services;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace CookTime.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -51,6 +52,14 @@ namespace CookTime.Views
             pedrito.likes = likes;
             pedrito.dislikes = dislikes;
 
+            JsonArray autorReceta = new JsonArray();
+            MyIp myIps = new MyIp();
+            WebClient x = new WebClient();
+
+            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?ID=" + pedrito.autor;
+            autorReceta.Add((JsonObject)JsonObject.Parse(x.DownloadString(url)));
+
+            
             BindingContext = this.viewModel = new ItemDetailViewModel(pedrito);
         }
 
@@ -67,6 +76,11 @@ namespace CookTime.Views
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
+
+
+
+
+
 
         async void Like(object sender, EventArgs e) {
 

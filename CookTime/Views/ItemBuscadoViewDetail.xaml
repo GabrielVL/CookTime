@@ -29,19 +29,58 @@
             </Grid.ColumnDefinitions>
 
 
+            <Label x:Name="chef1" HorizontalTextAlignment="Center"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   HorizontalOptions="Fill"
+                   Grid.Row="0"
+                   FontSize="25"
+                   TextColor="White"
+                   />
+
             <Label x:Name="ItemName" HorizontalTextAlignment="Center"
                    Grid.Column="0"
-               Grid.Row="1"
-               HorizontalOptions="Center"/>
+                   Grid.ColumnSpan="3"
+                   Grid.Row="1"
+                   HorizontalOptions="Center"
+                   FontSize="25"
+                   TextColor="White"
+                   BackgroundColor="#89D5C5"
+                   VerticalOptions="Center"/>
 
-            <Label x:Name="Description"
-                   Grid.Column="1"
-               Grid.Row="1"
+            <Label x:Name="correo" HorizontalTextAlignment="Center"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   
+               Grid.Row="2"
+               HorizontalOptions="Center"
+                   FontSize="25"
+                   TextColor="#89D5C5"/>
+
+            <Label x:Name="edad" HorizontalTextAlignment="Center"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   
+               Grid.Row="3"
+               HorizontalOptions="Center"
+                   FontSize="25"
+                   TextColor="#89D5C5"/>
+
+            <Image x:Name="Foto" HeightRequest="600" WidthRequest="600"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+               Grid.Row="5"
+               Grid.RowSpan="3"
                HorizontalOptions="Center"/>
-            <Image x:Name="Foto" HeightRequest="100" WidthRequest="100"
-                   Grid.Column="1"
-               Grid.Row="4"
-               HorizontalOptions="Center"/>
+            
+           
+
+            <Button Text="Seguir"
+               Grid.Column="1"
+               Grid.Row="9"
+                BackgroundColor="#79BEAF"
+                TextColor="White"/>
+
 
         </Grid>
     </ContentPage.Content>
