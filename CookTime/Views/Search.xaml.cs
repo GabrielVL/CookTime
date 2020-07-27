@@ -58,6 +58,16 @@ namespace CookTime.Views
                 
                 try
                 {
+                    string condicionChefsiana="";
+                    if(((String)pubCont[i]["chef"]).Equals("2"))
+                        {
+                            condicionChefsiana=" * CHEF *";
+                        
+                        
+                        }
+                    else{
+                        
+                    }
                     
                     Resultadousuarios.Add(new ItemBuscado 
                     { 
@@ -69,7 +79,7 @@ namespace CookTime.Views
                         correo = pubCont[i]["perfil"]["correo"],
                         edad = pubCont[i]["perfil"]["edad"],
                         chef = pubCont[i]["chef"],
-                        
+                        chefLabel= condicionChefsiana
                         
                     
 

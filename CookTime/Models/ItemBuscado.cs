@@ -26,6 +26,8 @@ namespace CookTime
         public string edad { get; set; }
 
         public string chef { get; set; }
+        public string chefLabel { get; set; }
+
 
 
         public override string ToString()
