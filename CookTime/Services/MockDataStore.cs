@@ -42,20 +42,24 @@ namespace CookTime.Services
             {
                 try
                 {
-                    Item receta = new Item();
+                    List<string> receta = new List<string>();
                     comments = (JsonArray)pubCont[i]["comentarios"];
+
                     foreach (JsonObject x in comments) {
                         try
                         {
-                            receta.comentarios.Add(((String)x["contenido"]));
+                            receta.Add(x["contenido"]);
                         }
-                        catch { }
+                        catch (Exception e){
+                            Console.WriteLine(e);
+                        }
                     }
+                    
                     items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"],
                         dieta = pubCont[i]["dieta"], foto = pubCont[i]["foto"], autor = pubCont[i]["autor"],
                         tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"],
                         precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"],
-                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta.comentarios});
+                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta});
 
                 }
                 catch (Exception e)

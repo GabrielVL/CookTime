@@ -23,7 +23,6 @@ namespace CookTime.Views
         public ItemsPage()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -31,7 +30,6 @@ namespace CookTime.Views
         {
             var layout = (BindableObject)sender;
             var item = (Item)layout.BindingContext;
-
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item), item.comentarios));
         }
 

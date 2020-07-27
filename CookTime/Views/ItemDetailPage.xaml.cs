@@ -9,6 +9,7 @@ using CookTime.ViewModels;
 using System.Threading.Tasks;
 using CookTime.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CookTime.Views
 {
@@ -18,15 +19,16 @@ namespace CookTime.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-        public IList<ComentarioItem> comments { get; private set; }
-        public IList<int> numeros { get; private set; }
+        string[] auxForList;
         public ItemDetailPage(ItemDetailViewModel viewModel, List<string> pepe)
         {
             InitializeComponent();
 
-            string[] mierda = new string[];
 
-            ListaEjemplo.ItemsSource = pepe;
+
+            auxForList= pepe.ToArray();            
+
+            ListaEjemplo.ItemsSource = auxForList; 
                     
             BindingContext = this.viewModel = viewModel;            
         }
@@ -81,7 +83,18 @@ namespace CookTime.Views
             
 
         }
+        async void Publicarcomentario(object sender, EventArgs e)
+        {
+            List<string> auxiliardepepe = new List<string>();
+            foreach (string i in auxForList) {
+                auxiliardepepe.Add(i);
+            }
+            auxiliardepepe.Add(NuevoComentario.Text);
 
+            auxForList = auxiliardepepe.ToArray();
+             ListaEjemplo.ItemsSource = auxForList;
+
+        }
 
 
     }

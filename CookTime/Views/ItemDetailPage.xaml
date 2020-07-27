@@ -60,7 +60,13 @@
             <Label Text="{Binding Item.dislikes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
             <Label />
 
+            <Button Text="Compartir" FontSize="15" BackgroundColor="#89D5C5"/>
+
+            <Label Text="Comentarios" FontSize="20" TextColor="#89D5C5"/>
             <ListView x:Name="ListaEjemplo"/>
+
+            <Entry x:Name="NuevoComentario" FontSize="Small"/>
+            <Button Text="Comentar" Clicked="Publicarcomentario"/>
 
 
         </StackLayout>
