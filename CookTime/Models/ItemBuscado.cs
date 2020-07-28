@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Json;
 using System.Text;
 
 namespace CookTime
@@ -30,8 +31,7 @@ namespace CookTime
         public string chef { get; set; }
         public string chefLabel { get; set; }
 
-
-
+        public JsonArray Mymenu { get; set; }
         public override string ToString()
         {
             return nombre;

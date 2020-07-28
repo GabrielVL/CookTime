@@ -37,6 +37,7 @@ namespace CookTime.Views
             {
                 String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?ID="+ int.Parse(i);
                 readyrecipe.Add((JsonObject)JsonObject.Parse(nombre.DownloadString(url)));
+                
             }
             
 

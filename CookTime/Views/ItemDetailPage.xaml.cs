@@ -17,6 +17,7 @@ namespace CookTime.Views
         int id1=0;
         int likes1=0;
         int dislikes1=0;
+        int auxPuntuacion = 1;
         public ItemDetailPage(ItemDetailViewModel viewModel, List<string> pepe)
         {
             InitializeComponent();
@@ -35,8 +36,8 @@ namespace CookTime.Views
             string precio, string porciones, string dificultad, string dieta,
             string likes, string dislikes, string id)
         {
-            id1 = int.Parse(id) + 1;
-            likes1 = int.Parse(likes) +1;
+            id1 = int.Parse(id);
+            likes1 = int.Parse(likes);
             dislikes1 = int.Parse(dislikes);
             Console.WriteLine("Simulacro" + id);
             InitializeComponent();
@@ -91,15 +92,26 @@ namespace CookTime.Views
 
         async void Like(object sender, EventArgs e)
         {
-            MyIp myIps = new MyIp();
-            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id="+id1;
-            Console.WriteLine("esto es una prueba de likes: " +url);
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "PUT";
-            request.GetResponse();
+            
+            try
+            {
+                if (auxPuntuacion == 1) {
+                    MyIp myIps = new MyIp();
+                    String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id=" + id1;
+                   
+                    WebRequest request = WebRequest.Create(url);
+                    request.Method = "PUT";
+                    request.GetResponse();
+                    likesLabel.Text = (likes1 + 1).ToString();
+                    auxPuntuacion--;
+                }
+            }
+            catch
+            {
 
+            }
 
-            likesLabel.Text =  (likes1 + 1).ToString();
+            
 
         }
         /**  Llama al servlet Recipes y le pide un put a una receta en específico
@@ -109,13 +121,21 @@ namespace CookTime.Views
             **/
         async void Dislike(object sender, EventArgs e)
         {
-            dislikesLabel.Text = dislikes1.ToString();
-            MyIp myIps = new MyIp();
-            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=-1&Id=" + id1;
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "PUT";
-            request.GetResponse();
-            dislikesLabel.Text = (dislikes1 + 1).ToString();
+            try
+            {
+                if (auxPuntuacion == 1)
+                {
+                    dislikesLabel.Text = dislikes1.ToString();
+                    MyIp myIps = new MyIp();
+                    String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=-1&Id=" + id1;
+                    WebRequest request = WebRequest.Create(url);
+                    request.Method = "PUT";
+                    request.GetResponse();
+                    dislikesLabel.Text = (dislikes1 + 1).ToString();
+                    auxPuntuacion--;
+                }
+            }
+            catch { }
         }
     /**  Llama al servlet Recipes y le pide un delete a una receta en específico
          *  @Params: sender Object, e EventArgs
@@ -135,14 +155,21 @@ namespace CookTime.Views
          **/
         async void Publicarcomentario(object sender, EventArgs e)
         {
-            List<string> auxiliardepepe = new List<string>();
-            foreach (string i in auxForList)
-            {
-                auxiliardepepe.Add(i);
-            }
-            auxiliardepepe.Add(NuevoComentario.Text);
+            if (NuevoComentario.Text != null) {
+                if (NuevoComentario.Text.Length != 0) {
+                    Console.WriteLine("AAA" + NuevoComentario.Text + "BBB");
+                    List<string> auxiliardepepe = new List<string>();
 
-            auxForList = auxiliardepepe.ToArray();
-            ListaEjemplo.ItemsSource = auxForList;
+                    foreach (string i in auxForList)
+                    {
+                        auxiliardepepe.Add(i);
+                    }
+                    auxiliardepepe.Add(NuevoComentario.Text);
+
+                    auxForList = auxiliardepepe.ToArray();
+                    ListaEjemplo.ItemsSource = auxForList;
+                }
+                NuevoComentario.Text = "";
+            }
         }
         } }
