@@ -10,18 +10,11 @@
              x:Name="BrowseItemsPage">
     <ScrollView>
     <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-        <Button Text="Añadir Receta" Clicked="enviarFormulario" HorizontalOptions="FillAndExpand" BackgroundColor="#89D5C5" TextColor="White"/>
+            <Button Text="Añadir Receta" Clicked="enviarFormulario" HorizontalOptions="FillAndExpand" BackgroundColor="#89D5C5" TextColor="White"/>
 
-        
-        <Entry x:Name="xd"  FontSize="Small" ></Entry>
-        <Label Text="Id" FontSize="Medium" HorizontalTextAlignment="Center"/>
-        
-        <Entry x:Name="Nombre"    FontSize="Small" />
+            <Entry x:Name="Nombre"    FontSize="Small" />
         <Label Text="Nombre" FontSize="Medium" HorizontalTextAlignment="Center" />
-        
-        <Entry x:Name="Autor" FontSize="Small" />
-        <Label Text="Autor" FontSize="Medium" HorizontalTextAlignment="Center" />
-        
+
         <Entry x:Name="Tipo"  FontSize="Small" />
         <Label Text="Tipo" FontSize="Medium" HorizontalTextAlignment="Center"/>
         

@@ -9,7 +9,7 @@ namespace CookTime.Services
 {
     class config
     {
-        private static String myId;
+        private static string myId;
         private static config conf;
         private static JsonObject perfil;
         private static JsonObject perfilOficial;
@@ -17,6 +17,7 @@ namespace CookTime.Services
         {
             
         }
+
 
 
         public static config getConfig()
@@ -52,6 +53,12 @@ namespace CookTime.Services
             return perfilOficial;
         }
 
+
+        /** Cambia el nombre del usuario en el perfil
+        *  @Params: newNombre String
+        *  @Author:Adrian González
+        *  @Returns nothing
+        **/
         public static void cambiarNombre(String newNombre)
         {
 

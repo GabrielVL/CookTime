@@ -66,12 +66,12 @@
             
             <Button Text="Like" FontSize="15" BackgroundColor="#89D5C5" Clicked="Like"/>
 
-            <Label Text="{Binding Item.likes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
+            <Label x:Name ="likesLabel" Text="{Binding Item.likes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
             <Label />
-            
-            <Button Text="Disike" FontSize="15" BackgroundColor="#89D5C5" Clicked="Dislike" />
 
-            <Label Text="{Binding Item.dislikes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
+            <Button  Text="Disike" FontSize="15" BackgroundColor="#89D5C5" Clicked="Dislike" />
+
+            <Label x:Name ="dislikesLabel" Text="{Binding Item.dislikes}" d:Text="Item description" FontSize="15" HorizontalOptions="Center"/>
             <Label />
 
             <Button Text="Compartir" FontSize="15" BackgroundColor="#89D5C5"/>

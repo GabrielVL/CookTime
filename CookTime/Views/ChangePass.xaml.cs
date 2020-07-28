@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,6 +13,12 @@ namespace CookTime.Views
             InitializeComponent();
         }
 
+
+        /**  Hace petición PUT para cambiar la contraseña del usuario
+    *  @Params: sender Object, e EventArgs
+    *  @Author: Andrés Quiros
+    *  @Returns nothing
+    **/
         async void cambiar(object sender, EventArgs e) {
             if (Password.Text == Password2.Text)
             {

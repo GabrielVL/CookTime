@@ -38,7 +38,6 @@ namespace CookTime.Views
 
             WebClient nombre = new WebClient();
 
-            //1
             String x = nombre.DownloadString(url);
             try
             {
@@ -49,7 +48,7 @@ namespace CookTime.Views
                     return false;
                 }
                 else
-                {//Adrian estuvo aqui 
+                {
                     usuario = (JsonObject)JsonObject.Parse(x);
                     id = usuario["id"];
                     config.setMyId(id);

@@ -14,6 +14,12 @@ namespace CookTime
 {
 
     class RestClient
+
+    /** Hace la petición al RestClient de la lista de usuarios
+    *  @Params: ChengedLabel Label
+    *  @Author:Adrian González
+    *  @Returns nothing
+    **/
     {
         public async void Peticion(Label ChangedLabel)
         {

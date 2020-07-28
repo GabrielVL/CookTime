@@ -26,6 +26,11 @@ namespace CookTime.Services
         
         }
 
+        /** Hace la petición al servidor para obtener las recetas y las gurada en un JsonArray
+        *  @Params: nothing
+        *  @Author:Adrian González
+        *  @Returns nothing
+        **/
         public async void Peticion()
         {
             MyIp myIps = new MyIp();
@@ -36,6 +41,12 @@ namespace CookTime.Services
             pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
         }
 
+
+        /** Añade los parámetro de las recetas a los de item
+        *  @Params: nothing
+        *  @Author:Adrian González
+        *  @Returns nothing
+        **/
         public void Publicar() {
 
             for (int i = 0; i < pubCont.Count; i++)
@@ -54,12 +65,12 @@ namespace CookTime.Services
                             Console.WriteLine(e);
                         }
                     }
-                    
                     items.Add(new Item { Text = pubCont[i]["nombre"],
                         dieta = pubCont[i]["dieta"], foto = pubCont[i]["foto"], autor = pubCont[i]["autor"],
                         tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"],
                         precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"],
-                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta, Id = pubCont[i]["id"]
+                        Id = pubCont[i]["id"],
+                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta,
                     });
 
                 }

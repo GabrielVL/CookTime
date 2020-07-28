@@ -1,27 +1,22 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using System.Net.Http;
 using System.Json;
 using CookTime.Models;
 using CookTime.ViewModels;
-using System.Threading.Tasks;
-using CookTime.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 
 namespace CookTime.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
         string[] auxForList;
         int id1=0;
+        int likes1=0;
+        int dislikes1=0;
         public ItemDetailPage(ItemDetailViewModel viewModel, List<string> pepe)
         {
             InitializeComponent();
@@ -30,6 +25,8 @@ namespace CookTime.Views
 
             ListaEjemplo.ItemsSource = auxForList;
             id1= int.Parse(viewModel.Item.Id);
+            likes1 = int.Parse(viewModel.Item.likes);
+            dislikes1 = int.Parse(viewModel.Item.dislikes);
             BindingContext = this.viewModel = viewModel;
 
         }
@@ -38,8 +35,12 @@ namespace CookTime.Views
             string precio, string porciones, string dificultad, string dieta,
             string likes, string dislikes, string id)
         {
-            id1 = int.Parse(id);
+            id1 = int.Parse(id) + 1;
+            likes1 = int.Parse(likes) +1;
+            dislikes1 = int.Parse(dislikes);
+            Console.WriteLine("Simulacro" + id);
             InitializeComponent();
+           
             Item pedrito = new Item();
             pedrito.Id = id;
             pedrito.Text = nombre;
@@ -97,22 +98,24 @@ namespace CookTime.Views
             request.Method = "PUT";
             request.GetResponse();
 
+
+            likesLabel.Text =  (likes1 + 1).ToString();
+
         }
         /**  Llama al servlet Recipes y le pide un put a una receta en específico
             *  @Params: sender Object, e EventArgs
             *  @Author: Andrés Quiros
             *  @Returns nothing
             **/
-
-        //http://192.168.1.5:8081/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id=0
-        //http://192.168.1.5:8081/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id=0
         async void Dislike(object sender, EventArgs e)
         {
+            dislikesLabel.Text = dislikes1.ToString();
             MyIp myIps = new MyIp();
             String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=-1&Id=" + id1;
             WebRequest request = WebRequest.Create(url);
             request.Method = "PUT";
             request.GetResponse();
+            dislikesLabel.Text = (dislikes1 + 1).ToString();
         }
     /**  Llama al servlet Recipes y le pide un delete a una receta en específico
          *  @Params: sender Object, e EventArgs

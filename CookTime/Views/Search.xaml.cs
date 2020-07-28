@@ -79,6 +79,7 @@ namespace CookTime.Views
                         correo = pubCont[i]["perfil"]["correo"],
                         edad = pubCont[i]["perfil"]["edad"],
                         chef = pubCont[i]["chef"],
+                        Id = pubCont[i]["id"],
                         chefLabel= condicionChefsiana
                         
                     

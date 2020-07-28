@@ -6,11 +6,10 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System;
 using System.Json;
+using CookTime.Services;
 
 namespace CookTime.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
@@ -43,11 +42,16 @@ namespace CookTime.Views
         
         async void enviarFormulario(object e, EventArgs a)
         {
+
+            /** Añade los parametrós añadidos por el usuario en un JsonObject e invoca a la funciones registration() para añadir la nueva receta en el Json 
+            *  @Params: sender Object, e EventArgs
+            *  @Author: Yordan Rojas
+            *  @Returns nothing
+            **/
             
             JsonObject Receta = new JsonObject ();
-            Receta.Add("id", xd.Text);
             Receta.Add("nombre",Nombre.Text);
-            Receta.Add("autor", Autor.Text);
+            Receta.Add("autor", config.getPerfil()["id"]);
             Receta.Add("tipo", Tipo.Text);
             Receta.Add("tiempo",Tiempo.Text);
             Receta.Add("dieta",Dieta.Text);
@@ -62,7 +66,6 @@ namespace CookTime.Views
             await Navigation.PopModalAsync();
         }
 
-
         async void Registrarse_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
@@ -73,11 +76,11 @@ namespace CookTime.Views
             HttpClient client = new HttpClient();
 
             MyIp myIps = new MyIp();
-            String param = "?nombre=A&Id=3";
-            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_war_exploded/recipes" + param, new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync("http://"+myIps.returnIP()+"/CookTime_war_exploded/recipes?Id="+config.getPerfil()["id"], new StringContent(myJson.ToString(), Encoding.UTF8, "application/json"));
             
         } 
 
 
     }
-}
+}       
+

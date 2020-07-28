@@ -12,6 +12,16 @@ namespace CookTime.Views
         
         private String ip = "192.168.1.5:8081";
         //private String ip = "192.168.100.2:8080";
+
+
+
+
+        /** Retorna la ip 
+       *  @Params: nothing
+       *  @Author:Adrian González
+       *  @Returns ip
+       **/
+
         public String returnIP()
         {
             return ip;
