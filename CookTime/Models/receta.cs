@@ -19,7 +19,7 @@ namespace CookTime.Models
         {
 
             string resActual = recetaJSON["fecha"];
-            string resContra = ((JsonObject)obj)["fecha"];
+            string resContra = ((receta)obj).recetaJSON["fecha"];
 
             return resActual.CompareTo(resContra);
         }

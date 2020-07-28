@@ -113,7 +113,7 @@ namespace CookTime.Views
 
 
 
-        async void Quick() 
+        async void Quick(object sender, EventArgs e) 
         {
             recetas = new List<Item>();
 
@@ -142,7 +142,7 @@ namespace CookTime.Views
         }
 
 
-        async void Bubble()
+        async void Bubble(object sender, EventArgs e)
         {
             //reseteo la kusta
             recetas = new List<Item>();
