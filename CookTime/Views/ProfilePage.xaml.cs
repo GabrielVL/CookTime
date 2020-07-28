@@ -26,6 +26,11 @@ namespace CookTime.Views
             CargarMyMenu();
             
         }
+        /** Manda petición de información del usuario
+*  @Params: nothing
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         public async void Peticion()
         {
             MyIp myIps = new MyIp();
@@ -42,6 +47,12 @@ namespace CookTime.Views
             
 
         }
+
+        /** Carga mymenu en el perfil
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void CargarMyMenu()
         {
             Peticion();
@@ -53,18 +64,22 @@ namespace CookTime.Views
             BindingContext = this;
         }
 
-        async void About_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
-            //await Navigation.PushModalAsync(new NavigationPage(new ItemsPage()));
-            await Navigation.PushModalAsync(new NavigationPage(new Page1()));
-        }
 
+        /** Abre nueva ventana para administrar datos
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void Administrar(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new Administrar()));
         }
 
+        /** Envia solicitud de usuario
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void Chef(object sender, EventArgs e)
         {
             MyIp myIps = new MyIp();
@@ -73,11 +88,12 @@ namespace CookTime.Views
             request.Method = "PUT";
             request.GetResponse();
         }
-       
-        public void GetProfile(String id)
-        {
 
-        }
+        /** Verifica si el usuario es chef
+        *  @Params: nothing
+        *  @Author:Andrés Quirós
+        *  @Returns nothing
+        **/
 
         public void VerificarChef()
         {
@@ -91,6 +107,12 @@ namespace CookTime.Views
             }
         }
 
+
+        /** Carga la información del usuario
+*  @Params: 
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         public async void UserInfo()
         {
             username.Text = (string)config.getPerfilOficial()["nombre"] + " " + (string)config.getPerfilOficial()["apellido1"] + " " + (string)config.getPerfilOficial()["apellido2"];
@@ -101,6 +123,13 @@ namespace CookTime.Views
 
             edad.Text = (string)config.getPerfil()["edad"] + " años";
         }
+
+
+        /** Abre nueva ventana de la receta seleccionada en mymenu
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
 
         {

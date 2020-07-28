@@ -32,16 +32,32 @@ namespace CookTime.Views
             var item = (Item)layout.BindingContext;
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item), item.comentarios));
         }
-
+        /** Abre nueva ventana para añadir nueva receta
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
+
+        /** Abre nueva ventana para registrar nuevo usuario
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void AddUser_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new Registrar()));
         }
+
+        /** Abre nueva ventana para buscar usuarios y recetas
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void Buscar(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new Search()));

@@ -37,7 +37,13 @@ namespace CookTime.Views
 
             BindingContext = this;
         }
-        
+
+
+        /** Envia solicitud para registro de usuarios
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void enviarFormulario(object e, EventArgs a)
         {
             
@@ -55,11 +61,22 @@ namespace CookTime.Views
         }
 
 
+        /** Cierra la ventana
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
+
         async void Registrarse_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
 
+        /** Registra al usuario
+*  @Params: myJson JsonObject
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         public async void registration(JsonObject myJson)
         {
             HttpClient client = new HttpClient();

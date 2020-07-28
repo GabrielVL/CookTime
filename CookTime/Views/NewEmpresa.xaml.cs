@@ -30,6 +30,11 @@ namespace CookTime.Views
             BindingContext = this;
         }
 
+        /** Envia solicitud para añadir nueva receta
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void enviarFormulario(object e, EventArgs a)
         {
 
@@ -41,6 +46,11 @@ namespace CookTime.Views
             await Navigation.PopModalAsync();
         }
 
+        /** Añade receta al servidor
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         public async void registration(JsonObject myJson)
         {
             HttpClient client = new HttpClient();

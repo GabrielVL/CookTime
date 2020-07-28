@@ -36,6 +36,12 @@ namespace CookTime.Views
             BindingContext = viewModel = new ItemsViewModel();
         }
 
+        /** Abre nueva ventana con detalles de la receta
+        *  @Params: object sender, EventArgs e
+        *  @Author:Andrés Quirós
+        *  @Returns nothing
+        **/
+
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;

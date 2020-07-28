@@ -7,7 +7,7 @@
              x:Class="CookTime.Views.ProfilePage"
              Title="Perfil">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="About" Clicked="About_Clicked" />
+        <ToolbarItem Text="About"  />
     </ContentPage.ToolbarItems>
     
     

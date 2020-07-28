@@ -38,6 +38,12 @@ namespace CookTime.Views
             };
         }
 
+
+                /** Realiza petición al servidor para obtener datos del usuario y de la receta
+        *  @Params: object sender, EventArgs e
+        *  @Author:Yordan Rojas
+        *  @Returns nothing
+        **/
         public async void Peticion()
         {
             WebClient nombre = new WebClient();
@@ -58,6 +64,12 @@ namespace CookTime.Views
             }
 
         }
+
+        /** Carga mymenu en el perfil del usuario
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void CargarMyMenu()
         {
             Peticion();
@@ -80,7 +92,11 @@ namespace CookTime.Views
             await Navigation.PushAsync(new ItemDetailPage(mydetails.Text, mydetails.Description, mydetails.foto, mydetails.autor, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes, mydetails.Id));
         }
 
-
+        /**Permite seguir al usuario
+*  @Params: object sender, EventArgs e
+*  @Author:Andrés Quirós
+*  @Returns nothing
+**/
         async void SeguirUsuario(object sender, EventArgs e)
         {
            

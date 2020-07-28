@@ -18,7 +18,14 @@ namespace CookTime.Views
             preview();
            
         }
-        
+
+
+        /** Cambio de nombre
+        *  @Params: object sender, EventArgs e
+        *  @Author:Yordan Rojas
+        *  @Returns nothing
+        **/
+
         async void cambiar(object sender, EventArgs e)
         {
             MyIp myIps = new MyIp();
