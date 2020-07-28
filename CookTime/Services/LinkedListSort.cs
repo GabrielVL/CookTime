@@ -51,55 +51,12 @@ namespace CookTime.Services
             newNode.prev = curr;
         }
 
-        // takes first and last node, 
-        // but do not break any links in  
-        // the whole linked list 
-        Node<T> paritionLast(Node<T> start, Node<T> end)
-        {
-            if (start == end ||
-               start == null || end == null)
-                return start;
-
-            Node<T> pivot_prev = start;
-            Node<T> curr = start;
-            T pivot = end.data;
-
-            // iterate till one before the end,  
-            // no need to iterate till the end  
-            // because end is pivot 
-            T temp;
-            while (start != end)
-            {
-
-                if (start.data.CompareTo(pivot) < 0)
-                {
-                    // keep tracks of last modified item 
-                    pivot_prev = curr;
-                    temp = curr.data;
-                    curr.data = start.data;
-                    start.data = temp;
-                    curr = curr.next;
-                }
-                start = start.next;
-            }
-
-            // swap the position of curr i.e. 
-            // next suitable index and pivot 
-            temp = curr.data;
-            curr.data = pivot;
-            end.data = temp;
-
-            // return one previous to current 
-            // because current is now pointing to pivot 
-            return pivot_prev;
-        }
-
         static Node<T> bubbleSort(Node<T> start)
         {
             int swapped;
             Node<T> node;
 
-            // Checking for empty list  
+            // Revisa si la lista está vacía
             if (start == null)
                 return null;
 
@@ -110,6 +67,7 @@ namespace CookTime.Services
 
                 while (node.next != null)
                 {
+                    // Sube los valores si son mayores
                     if (node.data.CompareTo(node.next.data) > 0)
                     {
                         T data = node.data;
@@ -124,48 +82,116 @@ namespace CookTime.Services
             return start;
         }
 
-        void quickSort(Node<T> start, Node<T> end)
+            void quickSort(Node<T> start, Node<T> end)
         {
             if (start == end)
                 return;
 
-            // split list and partion recurse 
+            // Partición de la lista
             Node<T> pivot_prev = paritionLast(start, end);
             quickSort(start, pivot_prev);
 
-            // if pivot is picked and moved to the start, 
-            // that means start and pivot is same  
-            // so pick from next of pivot 
+            // Si el pivote se mueve al principio, el pivote y el primer nodo son iguales, por lo tanto escoje al que está después del pivote
             if (pivot_prev != null &&
                 pivot_prev == start)
                 quickSort(pivot_prev.next, end);
 
-            // if pivot is in between of the list, 
-            // start from next of pivot,  
-            // since we have pivot_prev, so we move two nodes 
+            // Si el pivote está ebtre los nodos de la lista se empieza desde el que está dos nodos adelante del pivote, ya que pivot_prev ya almacena un pivote
             else if (pivot_prev != null &&
                     pivot_prev.next != null)
                 quickSort(pivot_prev.next.next, end);
         }
 
-        static void Sort(int[] arr)
+        // Toma el primer y el último nodo sin romper ningún enlace en la lista enlazada
+        Node<T> paritionLast(Node<T> start, Node<T> end)
         {
-            int temp = 0;
-            int i, j;
-            int[] tmp = new int[arr.Length];
-            for (int shift = 31; shift > -1; --shift)
+            if (start == end ||
+               start == null || end == null)
+                return start;
+
+            Node<T> pivot_prev = start;
+            Node<T> curr = start;
+            T pivot = end.data;
+
+            // Se itera hasta que el que está antes del último. No se necesita iterar hasta el final porque el último nodo es el pivote
+            T temp;
+            while (start != end)
             {
-                j = 0;
-                for (i = 0; i < arr.Length; ++i)
+
+                if (start.data.CompareTo(pivot) < 0)
                 {
-                    bool move = (arr[i] << shift) >= 0;
-                    if (shift == 0 ? !move : move)
-                        arr[i - j] = arr[i];
-                    else
-                        tmp[j++] = arr[i];
+                    // Sigue al último dato modificado
+                    pivot_prev = curr;
+                    temp = curr.data;
+                    curr.data = start.data;
+                    start.data = temp;
+                    curr = curr.next;
                 }
-                Array.Copy(tmp, 0, arr, arr.Length - j, j);
+                start = start.next;
             }
+
+            // El índice evaluado, el índice a evaluar u el último nodo cambian de posición
+            temp = curr.data;
+            curr.data = pivot;
+            end.data = temp;
+
+            // retorna al que está antes de current, ya que current apunta al pivote
+            return pivot_prev;
+        }
+
+        // Radix sort lo utiliza para obtener el número máximo
+        private int getMax(int[] arr, int n)
+        {
+            int mx = arr[0];
+            for (int i = 1; i < n; i++)
+                if (arr[i] > mx)
+                    mx = arr[i];
+            return mx;
+        }
+
+        // Radix sot lo utiliza si n / exp > 0
+        private void countSort(int[] arr, int n, int exp)
+        {
+            int[] output = new int[n]; // output array  
+            int i;
+            int[] count = new int[10];
+
+            // Inicializa los elementos del array
+            for (i = 0; i < 10; i++)
+                count[i] = 0;
+
+            // Suma 1 cada vez que se encuentra un dígito en su casilla correspondiente (ej: suma 1 en la casilla 4 si ve 104 y busca en unidades)
+            for (i = 0; i < n; i++)
+                count[(arr[i] / exp) % 10]++;
+
+            // Se le suma el valor anterior a cada valor
+            for (i = 1; i < 10; i++)
+                count[i] += count[i - 1];
+
+            // Construye el array resultante ordenado en el dígito correspondiente
+            for (i = n - 1; i >= 0; i--)
+            {
+                output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+                count[(arr[i] / exp) % 10]--;
+            }
+
+            // Se copia el array resultante en el array a ordenar
+            for (i = 0; i < n; i++)
+                arr[i] = output[i];
+        }
+
+        // Función principal de radix sort
+        public void radixSort(int[] arr)
+        {
+
+            int length = arr.Length;
+            // Busca el número máximo para conocer su cantidad de dígitos
+            int maxNum = getMax(arr, length);
+
+            // Hace count sort por cada dígito que tenga el número mayor. Cuando el loop sigue se multiplica 10 a exp, con un valor inicial de 1. El loop para cuando
+            // n/exp deja de ser un número mayor que 0.
+            for (int exp = 1; maxNum / exp > 0; exp *= 10)
+                countSort(arr, length, exp);
         }
 
         // Ordena la lista usando insertion sort con el primer nodo de la lista (InsertionSort)
