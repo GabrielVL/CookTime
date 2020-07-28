@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CookTime.Models;
 
 namespace CookTime.Services
 {
@@ -10,20 +11,10 @@ namespace CookTime.Services
         public Node<T> head;
         public Node<T> sorted;
 
-        public class Node<T> where T : IComparable
-        {
-            public T data;
-            public Node<T> prev;
-            public Node<T> next;
 
-            public Node(T val)
-            {
-                this.data = val;
-            }
-        }
 
         // Inserta un nodo al principio de la lista (similar a una pila)
-        void push(T val)
+        public void push(T val)
         {
             Node<T> newnode = new Node<T>(val);
             newnode.next = head;
@@ -94,7 +85,12 @@ namespace CookTime.Services
             return pivot_prev;
         }
 
-        static Node<T> bubbleSort(Node<T> start)
+        public Node<T> bubbleSort()
+        {
+            return bubbleSort(head);
+        }
+
+         public static Node<T> bubbleSort(Node<T> start)
         {
             int swapped;
             Node<T> node;

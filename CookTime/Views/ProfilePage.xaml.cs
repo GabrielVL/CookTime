@@ -8,6 +8,8 @@ using System.Net;
 using CookTime.Services;
 using CookTime.Models;
 using Xamarin.Forms.Markup;
+using static CookTime.Services.LinkedListSort<CookTime.Models.receta>;
+using static CookTime.Models.receta;
 
 namespace CookTime.Views
 {
@@ -107,6 +109,30 @@ namespace CookTime.Views
             var mydetails = e.Item as Item;
            
             await Navigation.PushAsync(new ItemDetailPage(mydetails.Text, mydetails.Description, mydetails.foto, mydetails.autor, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes, mydetails.Id));
+        }
+        async void Bubble()
+        {
+            //reseteo la kusta
+            recetas = new List<Item>();
+
+
+            LinkedListSort<receta> resultado = new LinkedListSort<receta>();
+            Node<receta> puntero = new Node<receta>();
+
+
+            foreach (JsonObject recetilla in readyrecipe)
+            {
+                resultado.push(new receta(recetilla));
+
+            };
+            resultado.bubbleSort();
+
+
+
+
+
+
+
         }
 
     }
