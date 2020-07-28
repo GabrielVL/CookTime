@@ -44,7 +44,7 @@ namespace CookTime.Views
         async void OnItemSelected2(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
-            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.apellido, mydetails.Foto, mydetails.apellido2, mydetails.correo, mydetails.edad, mydetails.chef));
+            await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.apellido, mydetails.Foto, mydetails.apellido2, mydetails.correo, mydetails.edad, mydetails.chef, mydetails.Id));
         }
         async void OnItemSelected3(object sender, ItemTappedEventArgs e)
         {
@@ -99,7 +99,24 @@ namespace CookTime.Views
                                         chefLabel = condicionChefsiana
                                     });
                         }
-                    //RECETAS-----------------------------------------------------------------------------
+                    else{
+                        
+                    }
+                    
+                    Resultadousuarios.Add(new ItemBuscado
+                    {
+
+                        apellido = pubCont[i]["apellido1"],
+                        nombre = pubCont[i]["nombre"],
+                        Foto = pubCont[i]["perfil"]["Foto"],
+                        apellido2 = pubCont[i]["apellido2"],
+                        correo = pubCont[i]["perfil"]["correo"],
+                        edad = pubCont[i]["perfil"]["edad"],
+                        chef = pubCont[i]["chef"],
+                        Id = pubCont[i]["id"],
+                        chefLabel= condicionChefsiana
+                        
+                    
 
                     if (mostrarRecipes)
                         {

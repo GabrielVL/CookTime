@@ -6,28 +6,8 @@
              mc:Ignorable="d"
              x:Class="CookTime.Views.ItemBuscadoViewDetail">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="45" />
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
+        <ScrollView>
+            <StackLayout>
 
             <Label x:Name="chef1" HorizontalTextAlignment="Center"
                    Grid.Column="0"
@@ -66,22 +46,63 @@
                    FontSize="25"
                    TextColor="#89D5C5"/>
 
-            <Image x:Name="Foto" HeightRequest="600" WidthRequest="600"
+            <Image x:Name="Foto"
                    Grid.Column="0"
                    Grid.ColumnSpan="3"
                Grid.Row="5"
                Grid.RowSpan="3"
-               HorizontalOptions="Center"/>
-            
-           
+               HorizontalOptions="Center"
+                   WidthRequest="300"
+                   HeightRequest="300"/>
+                      
 
             <Button Text="Seguir"
+                    Clicked="SeguirUsuario"
                Grid.Column="1"
                Grid.Row="9"
                 BackgroundColor="#79BEAF"
-                TextColor="White"/>
+                TextColor="White"
+                
+                
+                    
+                    
+                    />
 
-
-        </Grid>
+            <StackLayout>
+                <ListView ItemsSource="{Binding recetasPerfil}"
+                            HasUnevenRows="true"
+                            ItemTapped="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.RowSpan="2"
+                                        Source="{Binding foto}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        WidthRequest="60" />
+                                    <Label Grid.Column="1"
+                                        Text="{Binding Text}"
+                                        FontAttributes="Bold" />
+                                    <Label Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="End" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,7 @@ using CookTime.Models;
 using System.Json;
 using System.Net;
 using CookTime.Views;
+using Newtonsoft.Json.Linq;
 
 namespace CookTime.Services
 {
@@ -26,19 +27,47 @@ namespace CookTime.Services
         
         }
 
-        /** Hace la petición al servidor para obtener las recetas y las gurada en un JsonArray
+        /** Hace la petición al servidor para obtener las recetas y las guarda en un JsonArray
         *  @Params: nothing
         *  @Author:Adrian González
         *  @Returns nothing
         **/
         public async void Peticion()
         {
-            MyIp myIps = new MyIp();
-            String url = "http://"+myIps.returnIP()+"/CookTime_war_exploded/recipes";
-
-
             WebClient nombre = new WebClient();
-            pubCont = (JsonArray)JsonArray.Parse(nombre.DownloadString(url));
+            MyIp myIps = new MyIp();
+
+
+            JsonArray x = (JsonArray)config.getPerfilOficial()["Following"];
+            try
+            {
+                foreach (string i in x)
+                {
+                    Console.WriteLine("USUARIOOOOOOOOOO"+i);
+                    String urlUsuario = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?ID="+i;
+                    JsonObject usuarioActual = (JsonObject)JsonObject.Parse(nombre.DownloadString(urlUsuario));
+                    JsonObject currentPerfil = (JsonObject)usuarioActual["perfil"];
+                    JsonArray currentMymenu = (JsonArray)currentPerfil["MyMenu"];
+
+
+                    Console.WriteLine("USUARIOOOOOOOOOO2222222222222222" + i);
+                    try
+                    {
+                        foreach (string idReceta in currentMymenu)
+                        {
+                            Console.WriteLine("RECETA CON IDDDDDDDD" + idReceta);
+
+                            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Id=" + idReceta;
+                            pubCont.Add((JsonObject)JsonObject.Parse(nombre.DownloadString(url)));
+                        }
+
+                    }
+                    catch { }
+                    Console.WriteLine("USUARIOOOOOOOOOO3333333333333333333333333" + i);
+                }
+            }
+            catch { 
+            }
         }
 
 
@@ -48,6 +77,8 @@ namespace CookTime.Services
         *  @Returns nothing
         **/
         public void Publicar() {
+
+            
 
             for (int i = 0; i < pubCont.Count; i++)
             {
