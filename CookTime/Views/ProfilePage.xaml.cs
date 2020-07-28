@@ -110,6 +110,38 @@ namespace CookTime.Views
            
             await Navigation.PushAsync(new ItemDetailPage(mydetails.Text, mydetails.Description, mydetails.foto, mydetails.autor, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes, mydetails.Id));
         }
+
+
+
+        async void Quick() 
+        {
+            recetas = new List<Item>();
+
+
+            LinkedListSort<receta> resultado = new LinkedListSort<receta>();
+            Node<receta> puntero = new Node<receta>();
+
+
+            foreach (JsonObject recetilla in readyrecipe)
+            {
+                resultado.push(new receta(recetilla));
+
+            };
+            resultado.quick();
+
+            while (puntero != null)
+            {
+
+                JsonObject recetita = puntero.data.recetaJSON;
+                recetas.Add(new Item { Description = recetita["tipo"], Text = recetita["nombre"], foto = recetita["foto"], autor = recetita["autor"], tiempo = recetita["tiempo"], instrucciones = recetita["instrucciones"], precio = recetita["precio"], porciones = recetita["porciones"], dificultad = recetita["dificultad"], dieta = recetita["dieta"], likes = recetita["likes"], dislikes = recetita["dislikes"], Id = recetita["id"], });
+
+
+
+            }
+
+        }
+
+
         async void Bubble()
         {
             //reseteo la kusta
@@ -127,7 +159,15 @@ namespace CookTime.Views
             };
             resultado.bubbleSort();
 
+            while (puntero!=null) 
+            {
 
+                JsonObject recetita = puntero.data.recetaJSON;
+                recetas.Add(new Item { Description = recetita["tipo"], Text = recetita["nombre"], foto = recetita["foto"], autor = recetita["autor"], tiempo = recetita["tiempo"], instrucciones = recetita["instrucciones"], precio = recetita["precio"], porciones = recetita["porciones"], dificultad = recetita["dificultad"], dieta = recetita["dieta"], likes = recetita["likes"], dislikes = recetita["dislikes"], Id = recetita["id"], });
+
+
+
+            }
 
 
 

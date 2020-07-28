@@ -113,7 +113,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button Text="Fecha" Grid.Row="1" Grid.Column="1" Clicked="Bubble"/>
-                <Button Text="Puntuacion" Grid.Row="1" Grid.Column="2"/>
+                <Button Text="Puntuacion" Grid.Row="1" Grid.Column="2" Clicked="Quick"/>
                 <Button Text="Dificultad" Grid.Row="1" Grid.Column="3"/>
             </Grid>
             <StackLayout>

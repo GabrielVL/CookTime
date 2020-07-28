@@ -119,7 +119,11 @@ namespace CookTime.Services
             while (swapped != 0);
             return start;
         }
-
+        public void quick() 
+        {
+            quickSort(head, sorted);
+        
+        }
         void quickSort(Node<T> start, Node<T> end)
         {
             if (start == end)
