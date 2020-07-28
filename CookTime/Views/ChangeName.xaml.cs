@@ -18,7 +18,13 @@ namespace CookTime.Views
         {
             InitializeComponent();
         }
-    async void cambiar(object sender, EventArgs e)
+
+        /** Abre nueva ventana para el cambio de nombre
+        *  @Params: object sender, EventArgs e
+        *  @Author:Yordan Rojas
+        *  @Returns nothing
+        **/
+        async void cambiar(object sender, EventArgs e)
     {
             //hacer la llamada a /Users 
             //mandar mi ID

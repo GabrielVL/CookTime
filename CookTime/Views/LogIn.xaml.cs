@@ -24,7 +24,13 @@ namespace CookTime.Views
             InitializeComponent();
         }
 
-        public  Boolean Comparar(String correo, String contrasena)
+
+        /** Compara datos ingresados con los guardados en el servidor y permite logearse
+*  @Params: correo string, contrasena string
+*  @Author:Yordan Rojas, Andrés Quirós
+*  @Returns nothing
+**/
+        public Boolean Comparar(String correo, String contrasena)
         {
             Boolean answer = true;
 
@@ -62,6 +68,12 @@ namespace CookTime.Views
                 return false;
             }
         }
+
+        /** Abre la ventana principal de la aplicación
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
         async void MainPage(object sender, EventArgs e)
         {
             if (Comparar(Correo.Text.ToString(), Contraseña.Text.ToString()))

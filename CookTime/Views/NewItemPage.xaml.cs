@@ -66,11 +66,24 @@ namespace CookTime.Views
             await Navigation.PopModalAsync();
         }
 
+
+        /** Cierra la centana actual
+*  @Params: object sender, EventArgs e
+*  @Author:Yordan Rojas
+*  @Returns nothing
+**/
+
         async void Registrarse_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
 
+
+                /** Realiza la registración de la nueva receta
+        *  @Params: object sender, EventArgs e
+        *  @Author:Yordan Rojas
+        *  @Returns nothing
+        **/
         public async void registration(JsonObject myJson)
         {
             HttpClient client = new HttpClient();

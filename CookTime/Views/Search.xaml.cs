@@ -36,16 +36,34 @@ namespace CookTime.Views
 
             
         }
+
+                /** Abre nueva ventana del usuario buscado
+        *  @Params: object sender, EventArgs e
+        *  @Author:Yordan Rojas
+        *  @Returns nothing
+        **/
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
             await Navigation.PushAsync(new ItemDetailPage(mydetails.nombre, mydetails.Desc, mydetails.Foto, mydetails.tipo, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes, mydetails.Id));
         }
+
+        /** Abre nueva ventana de la receta buscada
+    *  @Params: object sender, EventArgs e
+    *  @Author:Yordan Rojas
+    *  @Returns nothing
+    **/
         async void OnItemSelected2(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
             await Navigation.PushAsync(new ItemBuscadoViewDetail(mydetails.nombre, mydetails.apellido, mydetails.Foto, mydetails.apellido2, mydetails.correo, mydetails.edad, mydetails.chef, mydetails.Id));
         }
+
+        /** Envia peticion de información de la ingresada por el usuario, inicia la búsqueda
+        *  @Params nothing
+        *  @Author:Adrián González
+        *  @Returns nothing
+        **/
         async void OnItemSelected3(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
@@ -67,6 +85,13 @@ namespace CookTime.Views
             }
             pubCont3 = (JsonArray)JsonArray.Parse(nombre.DownloadString(url3));
         }
+
+
+        /** Realiza la búsqueda con los parámetros ingresados
+        *  @Params: object sender, EventArgs e
+        *  @Author:Adrián González
+        *  @Returns nothing
+        **/
         async void Busqueda(object sender, EventArgs e)
         { 
             
