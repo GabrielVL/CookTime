@@ -27,7 +27,16 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="20">
-                            <Label Text="{Binding Text}" 
+
+
+                                <Label 
+                                HeightRequest="2"
+                                LineBreakMode="NoWrap" 
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#89D5C5"
+                               HorizontalTextAlignment="Center" />
+                            
+                                <Label Text="{Binding Text}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -36,7 +45,15 @@
                                BackgroundColor="#89D5C5"
                                TextColor="White"
                                HorizontalTextAlignment="Center" />
-                            <Label Text="{Binding Description}" 
+
+                                <Label 
+                                HeightRequest="2"
+                                LineBreakMode="NoWrap" 
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#89D5C5"
+                               HorizontalTextAlignment="Center" />
+                            
+                                <Label Text="{Binding Description}" 
                                 d:Text="Item descripton"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
@@ -47,9 +64,6 @@
                                    Source="{Binding foto}"></Image>
 
                             <Label 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="15"
                                 HorizontalOptions="Center"/>
                                 <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
@@ -64,7 +78,7 @@
         </ScrollView>
         <Button Grid.Row="0"
                      x:Name="B"
-                     ImageSource = "https://data.bloggif.com/distant/user/store/a/8/8/0/da9693a2755e19a6e21e61481445088a.png"        
+                     ImageSource = "busqueda.png"        
                      WidthRequest="70" 
                      HeightRequest="70"
                      CornerRadius="35"
@@ -74,12 +88,13 @@
                      BackgroundColor="#89D5C5"/>
         <Button Grid.Row="0"
                      x:Name="Add"
-                     ImageSource = "https://data.bloggif.com/distant/user/store/9/5/7/e/2708c47474088bed401318080c7ee759.png"        
+                     
+                     ImageSource = "anadir.png"   
                      WidthRequest="70" 
                      HeightRequest="70"
-                     CornerRadius="35"
+                     CornerRadius="40"
                      Padding="0"
-                     Margin="300,510,20,22"
+                     Margin="300,490,20,22"
                      Clicked="AddItem_Clicked"
                      BackgroundColor="#89D5C5"/>
     </AbsoluteLayout>

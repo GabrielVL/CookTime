@@ -7,6 +7,8 @@ namespace CookTime
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class ItemBuscado
     {
+
+        public string Id { get; set; }
         public string nombre { get; set; }
         public string Desc { get; set; }
         public string Foto { get; set; }

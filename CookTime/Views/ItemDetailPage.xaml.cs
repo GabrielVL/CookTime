@@ -21,25 +21,27 @@ namespace CookTime.Views
     {
         ItemDetailViewModel viewModel;
         string[] auxForList;
+        int id1=0;
         public ItemDetailPage(ItemDetailViewModel viewModel, List<string> pepe)
         {
             InitializeComponent();
 
+            auxForList = pepe.ToArray();
 
+            ListaEjemplo.ItemsSource = auxForList;
+            id1= int.Parse(viewModel.Item.Id);
+            BindingContext = this.viewModel = viewModel;
 
-            auxForList= pepe.ToArray();            
-
-            ListaEjemplo.ItemsSource = auxForList; 
-                    
-            BindingContext = this.viewModel = viewModel;            
         }
-        public ItemDetailPage(string nombre, string desc, 
-            string foto, string tipo, string tiempo, string instrucciones, 
-            string precio, string porciones, string dificultad, string dieta, 
-            string likes, string dislikes)
+        public ItemDetailPage(string nombre, string desc,
+            string foto, string tipo, string tiempo, string instrucciones,
+            string precio, string porciones, string dificultad, string dieta,
+            string likes, string dislikes, string id)
         {
+            id1 = int.Parse(id);
             InitializeComponent();
             Item pedrito = new Item();
+            pedrito.Id = id;
             pedrito.Text = nombre;
             pedrito.autor = desc;
             pedrito.dieta = dieta;
@@ -59,7 +61,7 @@ namespace CookTime.Views
             String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/users?ID=" + pedrito.autor;
             autorReceta.Add((JsonObject)JsonObject.Parse(x.DownloadString(url)));
 
-            
+
             BindingContext = this.viewModel = new ItemDetailViewModel(pedrito);
         }
 
@@ -72,44 +74,72 @@ namespace CookTime.Views
                 Text = "Item 1",
                 Description = "This is an item description."
             };
-            
+
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;
         }
 
 
 
+        /**  Llama al servlet Recipes y le pide un put a una receta en específico
+         *  @Params: sender Object, e EventArgs
+         *  @Author: Andrés Quiros
+         *  @Returns nothing
+         **/
 
 
-
-        async void Like(object sender, EventArgs e) {
-
+        async void Like(object sender, EventArgs e)
+        {
+            MyIp myIps = new MyIp();
+            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id="+id1;
+            Console.WriteLine("esto es una prueba de likes: " +url);
+            WebRequest request = WebRequest.Create(url);
+            request.Method = "PUT";
+            request.GetResponse();
 
         }
+        /**  Llama al servlet Recipes y le pide un put a una receta en específico
+            *  @Params: sender Object, e EventArgs
+            *  @Author: Andrés Quiros
+            *  @Returns nothing
+            **/
 
+        //http://192.168.1.5:8081/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id=0
+        //http://192.168.1.5:8081/CookTime_war_exploded/recipes?Target=opinion&DATA=1&Id=0
         async void Dislike(object sender, EventArgs e)
         {
-
+            MyIp myIps = new MyIp();
+            String url = "http://" + myIps.returnIP() + "/CookTime_war_exploded/recipes?Target=opinion&DATA=-1&Id=" + id1;
+            WebRequest request = WebRequest.Create(url);
+            request.Method = "PUT";
+            request.GetResponse();
         }
-
+    /**  Llama al servlet Recipes y le pide un delete a una receta en específico
+         *  @Params: sender Object, e EventArgs
+         *  @Author: Andrés Quiros
+         *  @Returns nothing
+         **/
         async void Borrar(object sender, EventArgs e)
         {
-            
+
 
         }
+
+            /**  Llama al servlet Recipes y le pide un put a una receta en específico en sus comentarios
+         *  @Params: sender Object, e EventArgs
+         *  @Author: Andrés Quiros
+         *  @Returns nothing
+         **/
         async void Publicarcomentario(object sender, EventArgs e)
         {
             List<string> auxiliardepepe = new List<string>();
-            foreach (string i in auxForList) {
+            foreach (string i in auxForList)
+            {
                 auxiliardepepe.Add(i);
             }
             auxiliardepepe.Add(NuevoComentario.Text);
 
             auxForList = auxiliardepepe.ToArray();
-             ListaEjemplo.ItemsSource = auxForList;
-
+            ListaEjemplo.ItemsSource = auxForList;
         }
-
-
-    }
-}
+        } }

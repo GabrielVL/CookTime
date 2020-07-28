@@ -55,11 +55,12 @@ namespace CookTime.Services
                         }
                     }
                     
-                    items.Add(new Item { Id = Guid.NewGuid().ToString(), Text = pubCont[i]["nombre"],
+                    items.Add(new Item { Text = pubCont[i]["nombre"],
                         dieta = pubCont[i]["dieta"], foto = pubCont[i]["foto"], autor = pubCont[i]["autor"],
                         tiempo = pubCont[i]["tiempo"], instrucciones = pubCont[i]["instrucciones"],
                         precio = pubCont[i]["precio"], dificultad = pubCont[i]["dificultad"],
-                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta});
+                        likes = pubCont[i]["likes"], dislikes = pubCont[i]["dislikes"], comentarios = receta, Id = pubCont[i]["id"]
+                    });
 
                 }
                 catch (Exception e)

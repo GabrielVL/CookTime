@@ -13,16 +13,30 @@
     
     <ScrollView>
         <StackLayout>
+
+            <Label x:Name="chef2"
+               FontSize="25"
+               TextColor="DarkGoldenrod"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
             <Label x:Name="username"
                Text="Nombre de usuario"
                FontSize="20"
                HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               VerticalOptions="Center"
+                   TextColor="#89D5C5"
+                   FontAttributes="Bold"/>
 
             <Label x:Name="correo"
                Grid.Column="2"
                FontSize="20"
-               Text="Correo"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+            <Label x:Name="edad"
+               Grid.Column="2"
+               FontSize="20"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
@@ -30,31 +44,50 @@
                x:Name="Foto"
                ></Image>
 
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+             HeightRequest="5"   />
+
+            <Label 
+             HeightRequest="2"
+             LineBreakMode="NoWrap" 
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="#89D5C5"
+             HorizontalTextAlignment="Center" />
+
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+             HeightRequest="5"   />
+                   
 
             <Button 
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="4"
             Text="Administrar Perfil"
-            Clicked="Administrar"/>
+            Clicked="Administrar"
+                BackgroundColor="#89D5C5"
+                TextColor="White"/>
 
-            <Button 
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="6"
-            Text="MyMenu"
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+             HeightRequest="5"   />
+
             
-            TextColor="White"
-            BackgroundColor="#89D5C5"/>
-
-            <Button 
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Grid.Row="8"
-            Text="Mapa"
-            Clicked="NewMap"
-            TextColor="White"
-            BackgroundColor="#89D5C5"/>
+            <Label 
+             HeightRequest="2"
+             LineBreakMode="NoWrap" 
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="#89D5C5"
+             HorizontalTextAlignment="Center" />
+            
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+             HeightRequest="5"   />
 
             <Button 
             x:Name="chef" 
@@ -65,7 +98,33 @@
             Clicked="Chef"
             TextColor="White"
             BackgroundColor="#89D5C5"/>
-            
+
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+             HeightRequest="7"/>
+
+            <Label 
+             HeightRequest="2"
+             LineBreakMode="NoWrap" 
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="#89D5C5"
+             HorizontalTextAlignment="Center" />
+
+            <Label 
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center" 
+             HeightRequest="7"   />
+
+
+            <Label 
+                Text="MYMENU"
+                TextColor="#89D5C5"
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"
+                FontSize="35"
+                FontAttributes="Bold"/>
+
             <StackLayout>
                 <ListView ItemsSource="{Binding recetas}"
                             HasUnevenRows="true"

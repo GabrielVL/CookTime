@@ -32,7 +32,7 @@ namespace CookTime.Views
         async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
             var mydetails = e.Item as ItemBuscado;
-            await Navigation.PushAsync(new ItemDetailPage(mydetails.nombre, mydetails.Desc, mydetails.Foto, mydetails.tipo, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes));
+            await Navigation.PushAsync(new ItemDetailPage(mydetails.nombre, mydetails.Desc, mydetails.Foto, mydetails.tipo, mydetails.tiempo, mydetails.instrucciones, mydetails.precio, mydetails.porciones, mydetails.dificultad, mydetails.dieta, mydetails.likes, mydetails.dislikes, mydetails.Id));
         }
         async void OnItemSelected2(object sender, ItemTappedEventArgs e)
         {

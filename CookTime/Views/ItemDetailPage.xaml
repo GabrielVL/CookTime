@@ -13,6 +13,13 @@
     <ScrollView>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
 
+            <Label 
+             HeightRequest="2"
+             LineBreakMode="NoWrap" 
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="#89D5C5"
+             HorizontalTextAlignment="Center" />
+
             <Label Text="{Binding Item.Text}" d:Text="Item name"
                HorizontalOptions="FillAndExpand"
                BackgroundColor="#89D5C5"
@@ -20,6 +27,13 @@
                HorizontalTextAlignment="Center"
                FontSize="30"
                />
+            <Label 
+             HeightRequest="2"
+             LineBreakMode="NoWrap" 
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="#89D5C5"
+             HorizontalTextAlignment="Center" />            
+            
 
             <Label />
             <Label Text="Dieta" FontSize="20" TextColor="#89D5C5"  />
@@ -61,12 +75,14 @@
             <Label />
 
             <Button Text="Compartir" FontSize="15" BackgroundColor="#89D5C5"/>
+            
+            <Entry x:Name="NuevoComentario" FontSize="Small" Placeholder="Añadir nuevo comentario" HorizontalTextAlignment="Center"/>
+            <Button Text="Comentar" Clicked="Publicarcomentario"/>
 
             <Label Text="Comentarios" FontSize="20" TextColor="#89D5C5"/>
             <ListView x:Name="ListaEjemplo"/>
 
-            <Entry x:Name="NuevoComentario" FontSize="Small"/>
-            <Button Text="Comentar" Clicked="Publicarcomentario"/>
+
 
 
         </StackLayout>
