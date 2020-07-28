@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Json;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +21,21 @@ namespace CookTime.Views
 
             correo.Text = Correo;
             edad.Text = "Edad:  " + Edad;  
+
+
+            Foto.Source = new UriImageSource()
+            {
+                Uri = new Uri(source)
+            };
+        }
+        public ItemBuscadoViewDetail(string Name, string Horario, string source, string Puntuacion, string Contacto, JsonArray MyMenu)
+        {
+            InitializeComponent();
+
+            ItemName.Text = Name;
+            
+            correo.Text = Horario;
+            edad.Text = Contacto;
 
 
             Foto.Source = new UriImageSource()

@@ -11,103 +11,158 @@
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Entry x:Name="Nombre"  FontSize="Small" Placeholder="Ingresar datos de búsqueda..." HorizontalTextAlignment="Center"></Entry>
             <Button Text="Buscar" Clicked="Busqueda" TextColor="White" BackgroundColor="#89D5C5"/>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <StackLayout Margin="20,35,20,20">
-                <ListView ItemsSource="{Binding Resultadousuarios}"
-                            HasUnevenRows="true"
-                            ItemTapped="OnItemSelected2"
-                            >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Grid.RowSpan="2"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Row="1" Grid.Column="1" VerticalOptions="Center" IsChecked="true" CheckedChanged="NoMostrarUsers" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Usuarios" VerticalOptions="Center" />
+
+                <CheckBox Grid.Row="1" Grid.Column="2" VerticalOptions="Center" IsChecked="true" CheckedChanged="NoMostrarRecipes" />
+                <Label Grid.Row="2" Grid.Column="2" Text="Recetas" VerticalOptions="Center"/>
+
+                <CheckBox Grid.Row="1" Grid.Column="3" VerticalOptions="Center" IsChecked="true" CheckedChanged="NoMostrarCompanies"/>
+                <Label Grid.Row="2" Grid.Column="3" Text="Restaurantes" VerticalOptions="Center"/>
+            </Grid>
+            <StackLayout>
+            <ListView ItemsSource="{Binding Resultadousuarios}"
+                      HasUnevenRows="true"
+                      ItemTapped="OnItemSelected2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
                                            Grid.Row="1"
                                         Source="{Binding Foto}"
                                         Aspect="AspectFill"
                                         HeightRequest="60"
                                         WidthRequest="60" />
-                                    <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                         Text="{Binding nombre}"
                                         FontAttributes="Bold" />
-                                    <Label 
+                                <Label 
                                         Grid.Column="2"
                                         Text="{Binding apellido}"
                                         FontAttributes="Bold"/>
-                                    <Label 
+                                <Label 
                                         Grid.Column="3"
                                         Text="{Binding apellido2}"
                                         FontAttributes="Bold"/>
-                                    <Label 
+                                <Label 
                                         Grid.Column="1"
                                         Grid.Row="1"
                                         Grid.ColumnSpan="4"
                                         Text="{Binding correo}"/>
-                                    <Label 
-                                        x:Name="prueba"
+                                <Label 
                                         Grid.Column="0"
                                         Grid.Row="0"
                                         Grid.ColumnSpan="4"
                                         TextColor="Gold"
                                         FontAttributes="Bold"
                                         Text="{Binding chefLabel}"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             </StackLayout>
-            <StackLayout Margin="20,35,20,20">
-                <ListView ItemsSource="{Binding Resultadorecetas}"
-                            HasUnevenRows="true"
-                            ItemTapped="OnItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Grid.RowSpan="2"
+            <StackLayout>
+            <ListView ItemsSource="{Binding Resultadorecetas}"
+                      HasUnevenRows="true"
+                      ItemTapped="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="5" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
                                         Source="{Binding Foto}"
                                         Aspect="AspectFill"
                                         HeightRequest="60"
                                         WidthRequest="60" />
-                                    <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                         Text="{Binding nombre}"
                                         FontAttributes="Bold" />
-                                    <Label Grid.Row="1"
+                                <Label Grid.Row="1"
                                         Grid.Column="1"
                                         Text="{Binding tipo}"
                                         VerticalOptions="End" />
-                                    <Label Grid.Row="2"
+                                <Label Grid.Row="2"
                                         Grid.Column="1"
                                         Text="{Binding tiempo}"
                                         VerticalOptions="End" />
 
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             </StackLayout>
-         </StackLayout>
-       </ScrollView>
+            <StackLayout>
+            <ListView ItemsSource="{Binding Resultadorestaurantes}"
+                      HasUnevenRows="true"
+                      ItemTapped="OnItemSelected3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="5" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                                           Grid.Row="1"
+                                        Source="{Binding Foto}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        WidthRequest="60" />
+                                <Label Grid.Column="1"
+                                        Text="{Binding nombre}"
+                                        FontAttributes="Bold" />
+                                <Label 
+                                        Grid.Column="2"
+                                        Text="{Binding horario}"
+                                        FontAttributes="Bold"/> 
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+          </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

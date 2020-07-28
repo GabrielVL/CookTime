@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Json;
 using System.Text;
 
 namespace CookTime
@@ -29,6 +30,12 @@ namespace CookTime
 
         public string chef { get; set; }
         public string chefLabel { get; set; }
+
+        public string horario { get; set; }
+        public string contacto { get; set; }
+        public string puntuacion { get; set; }
+
+        public JsonArray MyMenu { get; set; }
 
 
 
