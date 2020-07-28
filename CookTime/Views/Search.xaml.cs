@@ -102,21 +102,7 @@ namespace CookTime.Views
                     else{
                         
                     }
-                    
-                    Resultadousuarios.Add(new ItemBuscado
-                    {
 
-                        apellido = pubCont[i]["apellido1"],
-                        nombre = pubCont[i]["nombre"],
-                        Foto = pubCont[i]["perfil"]["Foto"],
-                        apellido2 = pubCont[i]["apellido2"],
-                        correo = pubCont[i]["perfil"]["correo"],
-                        edad = pubCont[i]["perfil"]["edad"],
-                        chef = pubCont[i]["chef"],
-                        Id = pubCont[i]["id"],
-                        chefLabel= condicionChefsiana
-                        
-                    
 
                     if (mostrarRecipes)
                         {
